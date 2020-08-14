@@ -5,28 +5,34 @@ module.exports = {
         es2017: true,
     },
     extends: [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:react/recommended",
         "prettier/@typescript-eslint",
         "plugin:prettier/recommended",
+        "prettier/react",
     ],
     parser: "@typescript-eslint/parser",
     parserOptions: {
-        project: "tsconfig.json",
-        tsconfigRootDir: ".",
+        ecmaVersion: 2020,
+        sourceType: "module",
         ecmaFeatures: {
             jsx: true,
         },
     },
-    plugins: ["@typescript-eslint"],
+    plugins: ["@typescript-eslint", "react", "prettier"],
     rules: {
         "react/react-in-jsx-scope": "off",
         "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
         "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
         "no-unused-vars": 0,
+    },
+    settings: {
+        "import/resolver": {
+            node: {
+                paths: ["@"],
+            },
+        },
     },
     globals: {
         React: "writable",

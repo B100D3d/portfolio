@@ -1,12 +1,17 @@
+import React from "react"
 import Head from "next/head"
+import MainBlock from "@/components/MainBlock/MainBlock"
 
-export default function Home() {
+const MainPage = () => {
     return (
-        <div>
+        <>
             <Head>
                 <title>devourer</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-        </div>
+            <MainBlock />
+        </>
     )
 }
+
+export default MainPage
