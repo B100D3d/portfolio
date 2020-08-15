@@ -1,4 +1,3 @@
-import React from "react"
 import Head from "next/head"
 import MainBlock from "@/components/MainBlock/MainBlock"
 

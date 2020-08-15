@@ -1,0 +1,80 @@
+
+.logo
+    color: white
+    font-size: 1.5rem
+    position: absolute
+    display: flex
+    justify-content: space-between
+    align-items: flex-end
+    top: 3%
+    left: 7%
+    font-weight: bold
+    pointer-events: none
+    animation: logo-translate 4s ease-in-out
+
+    &--small
+        font-size: 0.8em
+
+    &__glitch
+        position: relative
+        &::before ,&::after
+            content: attr(data-text)
+            color: white
+            position: absolute
+            left: 0
+            top: 0
+            transform: translateX(calc(var(--left) * 100%))
+            --top: 0
+            --left: 0
+            --v-height: 100%
+            --t-cut: calc(var(--top) / 10 * 100%)
+            --b-cut: calc(var(--t-cut) + var(--v-height))
+            clip-path: polygon(0% var(--t-cut), 100% var(--t-cut), 100% var(--b-cut), 0% var(--b-cut))
+
+
+        &::before
+            text-shadow: -3px -3px #00fff9
+            animation:  glitch-b 40s 4s infinite alternate-reverse
+        &::after
+            text-shadow: 3px 3px  #ff00c1
+            animation: glitch-a 30s 4s infinite alternate
+
+@keyframes glitch-a
+
+    $steps: 150
+
+    @for $i from 0 through $steps
+        #{percentage($i*(1/$steps))}
+            @if $i % 5 != 0
+                --top: 0
+                --left: 0
+                --v-height: 0%
+            @else
+                --top: #{random(4) + 2}
+                --left: #{random(30) / 100 - random(30) / 100 + 0.02}
+                --v-height: #{percentage((random(3) + 2) * (1/20))}
+
+@keyframes glitch-b
+    $steps: 150
+
+    @for $i from 0 through $steps
+        #{percentage($i*(1/$steps))}
+            @if $i % 5 != 0
+                --top: 0
+                --left: 0
+                --v-height: 0%
+            @else
+                --top: #{random(4) + 2}
+                --left: #{random(30) / 100 - random(30) / 100 - 0.02}
+                --v-height: #{percentage((random(3) + 2) * (1/20))}
+
+@keyframes logo-translate
+    0%, 70%
+        font-size: 3rem
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+    100%
+        font-size: 1.5rem
+        left: 7%
+        top: 3%
