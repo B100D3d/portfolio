@@ -1,5 +1,6 @@
 import MainBlockBackground from "@/components/MainBlock/MainBlockBackground/MainBlockBackground"
 import Logo from "@/components/Logo/Logo"
+import QuoteContainer from "@/components/QuoteContainer/QuoteContainer"
 
 import styles from "./main-block.module.sass"
 
@@ -10,6 +11,10 @@ const MainBlock = () => {
             <header>
                 <Logo />
             </header>
+            <main>
+                <div style={{ visibility: "hidden" }}>test</div>
+                <QuoteContainer />
+            </main>
         </div>
     )
 }
