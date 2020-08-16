@@ -2,12 +2,13 @@
 .mainBlockContainer
 
     &__mainBlockBackground
+        $sideLength: var(--sideLength, max(150vh, 150vw))
         position: absolute
-        top: calc((var(--sideLength) - 100%) / -2)
-        left: calc((var(--sideLength) - 100%) / -2)
+        top: calc((#{$sideLength} - 100%) / -2)
+        left: calc((#{$sideLength} - 100%) / -2)
         transform: rotate(-45deg) translate(0, -50%)
-        width: var(--sideLength, 100%)
-        height: var(--sideLength, 100%)
+        width: $sideLength
+        height: $sideLength
         background-color: var(--accent-color)
         animation: translate 4s ease-in-out
         z-index: -1

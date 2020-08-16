@@ -20,9 +20,13 @@ const MainBlockBackground = () => {
 
     return (
         <div
-            style={{
-                "--sideLength": `${backgroundSideLength}px`,
-            }}
+            style={
+                backgroundSideLength
+                    ? {
+                          "--sideLength": `${backgroundSideLength}px`,
+                      }
+                    : undefined
+            }
             className={styles["mainBlockContainer__mainBlockBackground"]}
         >
             <div className={styles["mainBlockContainer__backgroundClip"]} />
