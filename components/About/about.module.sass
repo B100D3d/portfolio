@@ -1,0 +1,46 @@
+
+
+.aboutContainer
+    display: flex
+    flex-direction: column
+    align-self: flex-start
+    $marginLeft: 5%
+    $marginTop: 3%
+    margin-left: $marginLeft
+    margin-top: $marginTop
+    width: calc(70%)
+    height: calc(50%)
+    color: white
+
+    &__title
+        color: #99999d
+        font-size: 3rem
+        font-weight: bold
+        animation: title-appearance 5.2s ease
+
+        &:first-child
+            animation: title-appearance 4.9s ease
+
+    &__about
+        margin-top: 10px
+        font-size: 1.2rem
+        width: 150%
+        animation: about-appearance 5.6s ease
+
+
+@keyframes title-appearance
+    0%, 70%
+        transform: translateX(-100%)
+        opacity: 0
+    100%
+        transform: translateY(0)
+        opacity: 1
+
+@keyframes about-appearance
+    0%, 90%
+        transform: translateY(80px)
+        opacity: 0
+    100%
+        transform: translateY(0px)
+        opacity: 1
+

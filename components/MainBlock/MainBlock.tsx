@@ -1,8 +1,8 @@
+import styles from "./main-block.module.sass"
 import MainBlockBackground from "@/components/MainBlock/MainBlockBackground/MainBlockBackground"
 import Logo from "@/components/Logo/Logo"
 import QuoteContainer from "@/components/QuoteContainer/QuoteContainer"
-
-import styles from "./main-block.module.sass"
+import About from "@/components/About/About"
 
 const MainBlock = () => {
     return (
@@ -12,7 +12,7 @@ const MainBlock = () => {
                 <Logo />
             </header>
             <main>
-                <div style={{ visibility: "hidden" }}>test</div>
+                <About />
                 <QuoteContainer />
             </main>
         </div>

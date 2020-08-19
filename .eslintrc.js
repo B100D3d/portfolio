@@ -5,9 +5,9 @@ module.exports = {
         es2017: true,
     },
     extends: [
+        "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:react/recommended",
         "prettier/@typescript-eslint",
         "plugin:prettier/recommended",
         "prettier/react",
@@ -23,6 +23,7 @@ module.exports = {
     plugins: ["@typescript-eslint", "react", "prettier"],
     rules: {
         "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off",
         "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
         "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
         "no-unused-vars": 0,
