@@ -37,12 +37,43 @@ interface Quote {
 const QUOTES: Array<Quote> = [
     {
         key: "ASDewedf",
-        title: <span>Title</span>,
-        text: <span>Aaaa</span>,
+        title: <span style={{ color: "#F7F272" }}>Albus Dumbledore</span>,
+        text: (
+            <span>
+                It takes a great deal of bravery to stand up to our{" "}
+                <span style={{ color: "#FF0000" }}>enemies</span>, but just as
+                much to stand up to our{" "}
+                <span style={{ color: "#A854A5" }}>friends</span>.
+            </span>
+        ),
     },
     {
         key: "dwdfwdf",
-        title: <span>Title 2</span>,
-        text: <span>Aaaa 2</span>,
+        title: <span style={{ color: "#535353" }}>Sirius Black</span>,
+        text: (
+            <span>
+                If you want to know what a man’s like, take a good look at how
+                he treats his{" "}
+                <span style={{ color: "#17F1D7" }}>inferiors</span>, not his{" "}
+                <span style={{ color: "#F85C50" }}>equals</span>.
+            </span>
+        ),
+    },
+    {
+        key: "dsm92j",
+        title: (
+            <span>
+                Dan Brown. <span style={{ color: "#B40A1B" }}>Inferno</span>
+            </span>
+        ),
+        text: (
+            <span>
+                Nothing is more creative... nor destructive... than a brilliant{" "}
+                <span style={{ color: "#00848C", textTransform: "uppercase" }}>
+                    mind
+                </span>{" "}
+                with a <span style={{ color: "#FF905A" }}>purpose</span>.
+            </span>
+        ),
     },
 ]
