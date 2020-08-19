@@ -3,7 +3,7 @@ import useQuote from "@/hooks/useQuote"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
 
 const QuoteContainer = () => {
-    const quote = useQuote(7000)
+    const quote = useQuote(9000)
 
     return (
         <div className={styles.quoteBox}>

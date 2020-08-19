@@ -32,6 +32,7 @@ $borderStyle: 5px solid var(--accent-color)
     transition: all 0.4s linear
     animation: box-appearance 5s ease
 
+
     i
         position: absolute
         background-color: white
@@ -116,6 +117,17 @@ $borderStyle: 5px solid var(--accent-color)
                 text-align: center
                 font-style: italic
 
+    @media all and (min-width: $screen-md)
+        width: calc(40% + #{$marginRight})
+        height: calc(55% - 10px)
+        margin-bottom: 20px
+
+        &:hover
+            transform: skewY(2deg) rotateY(-15deg)
+
+            .textBox, .textBoxBackground
+                transform: skewY(-2deg) rotateY(15deg)
+
 @keyframes pulse
     0%
         transform: translate(-40%, -40%) scale(0)
@@ -137,15 +149,3 @@ $borderStyle: 5px solid var(--accent-color)
         transform: translateY(0)
         opacity: 1
 
-@media all and (min-width: $screen-md)
-    .quoteBox
-        width: calc(40% + 30px)
-        height: calc(55% - 10px)
-        margin-right: 30px
-        margin-bottom: 20px
-
-        &:hover
-            transform: skewY(2deg) rotateY(-15deg)
-
-            .textBox, .textBoxBackground
-                transform: skewY(-2deg) rotateY(15deg)
