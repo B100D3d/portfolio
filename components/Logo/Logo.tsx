@@ -1,5 +1,5 @@
 import styles from "./logo.module.sass"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { addChars, removeLastChars } from "@/utils/animation"
 
 const LOGO_TEXT = "DEV."
@@ -9,10 +9,13 @@ const Logo = () => {
     const [logoText, setLogoText] = useState(LOGO_TEXT)
     const [subLogoText, setSubLogoText] = useState("")
 
+    const animate = useCallback(async () => {
+        await removeLastChars(1, 1500, setLogoText)
+        await addChars(SUB_TEXT, 150, setSubLogoText)
+    }, [])
+
     useEffect(() => {
-        removeLastChars(1, 1500, setLogoText).then(() =>
-            addChars(SUB_TEXT, 150, setSubLogoText)
-        )
+        animate()
     }, [])
 
     return (

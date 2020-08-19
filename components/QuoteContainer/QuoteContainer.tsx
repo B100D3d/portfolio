@@ -8,7 +8,7 @@ const QuoteContainer = () => {
     return (
         <div className={styles.quoteBox}>
             <i />
-            <div className={`${styles.textBoxBackground}`} />
+            <div className={styles.textBoxBackground} />
             <div className={styles.textBox}>
                 <SwitchTransition>
                     <CSSTransition
