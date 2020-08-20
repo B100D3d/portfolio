@@ -1,15 +1,16 @@
-
+@import "styles/variables"
 
 .aboutContainer
     display: flex
     flex-direction: column
+    align-items: flex-start
     align-self: flex-start
     $marginLeft: 5%
     $marginTop: 3%
     margin-left: $marginLeft
     margin-top: $marginTop
-    width: calc(70%)
-    height: calc(50%)
+    width: 70%
+    height: 50%
     color: white
 
     &__title
@@ -27,6 +28,21 @@
         width: 150%
         animation: about-appearance 5.6s ease
 
+    .aboutBtnContainer
+        margin-top: 50px
+        animation: btn-appearance ease 5.6s
+        .aboutBtn
+            font-size: 1rem
+            &::after
+                content: "→"
+                font-width: bold
+                display: inline-flex
+                animation: arrowTranslate 1s ease infinite alternate
+
+    @media all and (min-width: $screen-md)
+        height: 40%
+
+
 
 @keyframes title-appearance
     0%, 70%
@@ -43,4 +59,19 @@
     100%
         transform: translateY(0px)
         opacity: 1
+
+@keyframes btn-appearance
+    0%, 90%
+        opacity: 0
+        transform: translateY(50px)
+    100%
+        opacity: 1
+        transform: translateY(0)
+
+
+@keyframes arrowTranslate
+    from
+        transform: translateX(0)
+    to
+        transform: translateX(10px)
 

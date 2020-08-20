@@ -3,6 +3,7 @@ import ColorFilledText from "@/components/ColorFilledText/ColorFilledText"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { timeout } from "@/utils"
 import { revealText } from "@/utils/animation"
+import RainbowButton from "@/components/RainbowButton/RainbowButton"
 
 const animationTimeout = 4900
 
@@ -31,15 +32,20 @@ const About = () => {
 
     return (
         <div className={styles.aboutContainer}>
-            <div ref={nameTitleRef} className={styles["aboutContainer__title"]}>
+            <div ref={nameTitleRef} className={styles.aboutContainer__title}>
                 <ColorFilledText animate={colorFill}>Hello.</ColorFilledText>
             </div>
-            <div className={styles["aboutContainer__title"]}>
+            <div className={styles.aboutContainer__title}>
                 <ColorFilledText animate={colorFill}>
                     I&apos;m Denis
                 </ColorFilledText>{" "}
             </div>
-            <span className={styles["aboutContainer__about"]}>{aboutText}</span>
+            <span className={styles.aboutContainer__about}>{aboutText}</span>
+            <div className={styles.aboutBtnContainer}>
+                <RainbowButton className={styles.aboutBtn}>
+                    About me
+                </RainbowButton>
+            </div>
         </div>
     )
 }

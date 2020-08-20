@@ -12,18 +12,18 @@ const QuoteContainer = () => {
             <div className={styles.textBox}>
                 <SwitchTransition>
                     <CSSTransition
-                        key={quote?.key}
+                        key={quote.key}
                         classNames="fade-slide"
                         addEndListener={(node, done) =>
                             node.addEventListener("transitionend", done, false)
                         }
                     >
                         <div className={styles.textContainer}>
-                            <span className={styles["textContainer__title"]}>
-                                {quote?.title}
+                            <span className={styles.textContainer__title}>
+                                {quote.title}
                             </span>
-                            <span className={styles["textContainer__quote"]}>
-                                {quote?.text}
+                            <span className={styles.textContainer__quote}>
+                                {quote.text}
                             </span>
                         </div>
                     </CSSTransition>
