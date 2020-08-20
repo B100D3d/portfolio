@@ -12,6 +12,9 @@ $borderStyle: 5px solid var(--accent-color)
     top: $top
     left: $left
     transition: all 0.4s linear
+    transform-style: preserve-3d
+    backface-visibility: hidden
+    outline: 1px solid transparent
     border-radius: 5px
     overflow: hidden
     color: white
@@ -28,6 +31,7 @@ $borderStyle: 5px solid var(--accent-color)
     margin-right: $marginRight
     margin-bottom: $marginBottom
     transform-style: preserve-3d
+    backface-visibility: hidden
     perspective: 1000px
     transition: all 0.4s linear
     animation: box-appearance 5s ease
@@ -43,10 +47,10 @@ $borderStyle: 5px solid var(--accent-color)
         right: -1px
 
     &:hover
-        transform: skewY(3deg) rotateY(-20deg)
+        transform: rotate3d(0, 1, 0, -20deg)
 
         .textBox, .textBoxBackground
-            transform: skewY(-3deg) rotateY(20deg)
+            transform: rotate3d(0, 1, 0, 20deg)
 
 
     &::before, &::after
@@ -90,9 +94,7 @@ $borderStyle: 5px solid var(--accent-color)
         &::after
             animation: pulse 2s linear infinite
         &::before
-            animation: pulse 2s linear infinite 0.5s
-
-
+            animation: pulse 2s linear infinite 1s
 
         .textContainer
             position: absolute
@@ -123,23 +125,20 @@ $borderStyle: 5px solid var(--accent-color)
         margin-bottom: 20px
 
         &:hover
-            transform: skewY(2deg) rotateY(-15deg)
+            transform: rotate3d(0, 1, 0, -15deg)
 
             .textBox, .textBoxBackground
-                transform: skewY(-2deg) rotateY(15deg)
+                transform: rotate3d(0, 1, 0, 15deg)
 
 @keyframes pulse
     0%
         transform: translate(-40%, -40%) scale(0)
-    45%
-        transform: translate(-40%, -40%) scale(1.2)
+    50%
+        transform: translate(-40%, -40%) scale(0.7)
         opacity: 1
-    90%
-        opacity: 0
-        transform: translate(-40%, -40%) scale(1.4)
     100%
         opacity: 0
-        transform: translate(-40%, -40%) scale(1)
+        transform: translate(-40%, -40%) scale(1.4)
 
 @keyframes box-appearance
     0%, 70%

@@ -9,7 +9,7 @@ interface RainbowButtonProps {
     initialColors?: Array<string>
 }
 
-const INITIAL_COLORS = ["#B326FF", "#5F26FF", "hsl(240deg, 100%, 45%)"]
+const INITIAL_COLORS = ["#7367F0", "#8E2DE2", "#4A00E0"]
 
 const RainbowButton: React.FunctionComponent<RainbowButtonProps> = ({
     children,

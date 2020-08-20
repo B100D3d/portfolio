@@ -1,4 +1,10 @@
 
+@mixin glitch-transformation($top, $left, $v-height)
+    $t-cut: calc(#{ $top / 10 } * 100%)
+    $b-cut: calc(#{ $top / 10 } * 100% + #{ $v-height })
+    transform: translateX(calc(#{ $left } * 100%))
+    clip-path: polygon(-20% $t-cut, 120% $t-cut, 120% $b-cut, -20% $b-cut)
+
 .logo
     color: white
     font-size: 1.5rem
@@ -23,21 +29,18 @@
             position: absolute
             left: 0
             top: 0
-            transform: translateX(calc(var(--left) * 100%))
-            --top: 0
-            --left: 0
-            --v-height: 100%
-            --t-cut: calc(var(--top) / 10 * 100%)
-            --b-cut: calc(var(--t-cut) + var(--v-height))
-            clip-path: polygon(0% var(--t-cut), 100% var(--t-cut), 100% var(--b-cut), 0% var(--b-cut))
+            $top: -2
+            $left: 0
+            $v-height: 120%
+            @include glitch-transformation($top, $left, $v-height)
 
 
         &::before
             text-shadow: -3px -3px #00fff9
-            animation:  glitch-b 40s 4s infinite alternate-reverse
+            animation:  glitch-b 40s 4s steps(1) infinite alternate-reverse
         &::after
             text-shadow: 3px 3px  #ff00c1
-            animation: glitch-a 30s 4s infinite alternate
+            animation: glitch-a 30s 4s steps(1) infinite alternate
 
 @keyframes glitch-a
 
@@ -46,13 +49,12 @@
     @for $i from 0 through $steps
         #{percentage($i*(1/$steps))}
             @if $i % 5 != 0
-                --top: 0
-                --left: 0
-                --v-height: 0%
+                @include glitch-transformation(0, 0, 0)
             @else
-                --top: #{random(4) + 2}
-                --left: #{random(30) / 100 - random(30) / 100 + 0.02}
-                --v-height: #{percentage((random(3) + 2) * (1/20))}
+                $top: #{random(4) + 2}
+                $left: #{random(30) / 100 - random(30) / 100 + 0.02}
+                $v-height: #{percentage((random(3) + 2) * (1/20))}
+                @include glitch-transformation($top, $left, $v-height)
 
 @keyframes glitch-b
     $steps: 150
@@ -60,13 +62,12 @@
     @for $i from 0 through $steps
         #{percentage($i*(1/$steps))}
             @if $i % 5 != 0
-                --top: 0
-                --left: 0
-                --v-height: 0%
+                @include glitch-transformation(0, 0, 0)
             @else
-                --top: #{random(4) + 2}
-                --left: #{random(30) / 100 - random(30) / 100 - 0.02}
-                --v-height: #{percentage((random(3) + 2) * (1/20))}
+                $top: #{random(4) + 2}
+                $left: #{random(30) / 100 - random(30) / 100 - 0.02}
+                $v-height: #{percentage((random(3) + 2) * (1/20))}
+                @include glitch-transformation($top, $left, $v-height)
 
 @keyframes logo-translate
     0%, 70%

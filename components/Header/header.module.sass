@@ -45,11 +45,11 @@
                 height: 2px
 
             &::before
-                transition: width 0.25s 0.15s
+                transition: all cubic-bezier(.694,.048,.335,1) 0.25s 0.15s
                 background-color: #FF2970
 
             &::after
-                transition: width 0.25s
+                transition: all cubic-bezier(.694,.048,.335,1) 0.25s
                 background-color: #00DFC8
 
             &:hover
@@ -82,7 +82,7 @@
                 &::before, &::after
                     content: attr(data-text)
                     position: absolute
-                    transition: transform .5s ease, color 0.5s
+                    transition: transform .1s linear, color 0.5s
                     color: #b0b2c3
                     top: 0
                     left: 0

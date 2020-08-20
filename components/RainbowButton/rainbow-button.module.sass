@@ -6,9 +6,9 @@
     cursor: pointer
     padding: 10px 20px
     color: white
-    --color-0: #00E7F7
-    --color-1: #00C2F1
-    --color-2: #CE9FFC
+    --color-0: #7367F0
+    --color-1: #8E2DE2
+    --color-2: #4A00E0
     background: radial-gradient(circle at top left, var(--color-0), var(--color-1), var(--color-2))
     transition: --color-0 4s linear, --color-1 4s linear, --color-2 4s linear, box-shadow .5s ease, transform .5s ease
     animation: colors 16s linear infinite alternate
@@ -20,13 +20,13 @@
 
 @keyframes colors
     0%
-        --color-0: #00E7F7
-        --color-1: #00C2F1
-        --color-2: #CE9FFC
-    33%
         --color-0: #7367F0
         --color-1: #8E2DE2
         --color-2: #4A00E0
+    33%
+        --color-0: #00e7f7
+        --color-1: #00C2F1
+        --color-2: #CE9FFC
     66%
         --color-0: #6D107E
         --color-1: #F03358
