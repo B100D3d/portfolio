@@ -6,7 +6,7 @@ const getRandomQuote = (quotes: Array<Quote>) => {
 }
 
 const useQuote = (interval: number) => {
-    const [quote, setQuote] = useState<Quote>()
+    const [quote, setQuote] = useState<Quote>(QUOTES[0])
 
     const handleQuote = useCallback(() => {
         setQuote((prevQuote) => {
