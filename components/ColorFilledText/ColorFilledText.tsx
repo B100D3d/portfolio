@@ -1,4 +1,5 @@
 import styles from "./color-filled.module.sass"
+import classNames from "classnames"
 
 interface ColorFilledProps {
     className?: string
@@ -9,16 +10,16 @@ interface ColorFilledProps {
 const ColorFilledText: React.FunctionComponent<ColorFilledProps> = ({
     className = "",
     children,
-    animate = true,
+    animate,
 }) => {
     return (
         <div className={styles.colorFilled}>
-            <span className={styles["colorFilled__back"]}>{children}</span>
+            <span className={styles.colorFilled__back}>{children}</span>
             <span
                 data-text={children}
-                className={`${styles["colorFilled__front"]} ${className} ${
-                    animate ? styles.animate : ""
-                }`}
+                className={classNames(styles.colorFilled__front, className, {
+                    [styles.animate]: animate,
+                })}
             >
                 {children}
             </span>
