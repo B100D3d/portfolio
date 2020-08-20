@@ -1,0 +1,108 @@
+@import "styles/variables"
+
+.header
+    position: fixed
+    left: 0
+    top: 3%
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 100%
+    padding: 0 5px
+    z-index: 1
+
+    ul
+        display: flex
+        margin: 0
+        padding: 0
+        justify-content: space-between
+        align-items: center
+        list-style: none
+        font-size: 1rem
+        animation: menu-appearance 6.2s ease
+
+        @media all and (min-width: $screen-smd)
+            margin-right: 15%
+
+        @media all and (min-width: $screen-md)
+            margin-right: 25%
+
+        @media all and (min-width: $screen-dc)
+            margin-right: 40%
+
+        li
+            padding: 2px 10px
+            position: relative
+            cursor: pointer
+
+            &::before, &::after
+                content: ""
+                position: absolute
+                bottom: 0
+                left: auto
+                right: 10%
+                width: 0
+                height: 2px
+
+            &::before
+                transition: width 0.25s 0.15s
+                background-color: #FF2970
+
+            &::after
+                transition: width 0.25s
+                background-color: #00DFC8
+
+            &:hover
+                &::before, &::after
+                    width: 80%
+                    right: auto
+                    left: 10%
+                a
+                    transition: none
+                    color: transparent
+
+                    &::before, &::after
+                        color: white
+
+                    &::before
+                        transform: translateY(-2px)
+
+                    &::after
+                        transform: translateY(2px)
+
+
+
+            a
+                width: 100%
+                height: 100%
+                color: #b0b2c3
+                position: relative
+                transition: color 0s 0.5s
+
+                &::before, &::after
+                    content: attr(data-text)
+                    position: absolute
+                    transition: transform .5s ease, color 0.5s
+                    color: #b0b2c3
+                    top: 0
+                    left: 0
+
+                &::before
+                    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%)
+
+                &::after
+                    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%)
+
+.sizer
+    font-size: 1.5rem
+    font-weight: bold
+    visibility: hidden
+
+@keyframes menu-appearance
+    0%, 80%
+        opacity: 0
+        transform: translateY(-100%)
+    100%
+        opacity: 1
+        transform: translateY(0)
+

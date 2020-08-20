@@ -20,11 +20,11 @@ const Logo = () => {
 
     return (
         <div className={styles.logo}>
-            <span data-text={logoText} className={styles["logo__glitch"]}>
+            <span data-text={logoText} className={styles.logo__glitch}>
                 {logoText}
             </span>
             <span
-                className={`${styles["logo__glitch"]} ${styles["logo--small"]}`}
+                className={`${styles.logo__glitch} ${styles["logo--small"]}`}
                 data-text={subLogoText}
             >
                 {subLogoText}

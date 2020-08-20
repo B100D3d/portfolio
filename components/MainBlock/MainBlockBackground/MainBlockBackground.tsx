@@ -27,9 +27,9 @@ const MainBlockBackground = () => {
                       }
                     : undefined
             }
-            className={styles["mainBlockContainer__mainBlockBackground"]}
+            className={styles.mainBlockContainer__mainBlockBackground}
         >
-            <div className={styles["mainBlockContainer__backgroundClip"]} />
+            <div className={styles.mainBlockContainer__backgroundClip} />
         </div>
     )
 }
