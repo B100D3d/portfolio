@@ -1,0 +1,69 @@
+@import "styles/variables"
+
+.social
+    position: absolute
+    top: 30%
+    right: 10px
+    display: flex
+    flex-direction: column
+    list-style: none
+    padding: 0
+    margin: -5px 0
+
+    @media all and (min-width: $screen-smd)
+        top: 50px
+
+    li
+        margin: 5px 0
+        cursor: pointer
+        transition: transform 0.25s ease
+
+        &:hover
+            transform: scale(1.05)
+            filter: drop-shadow(4px 4px 1px rgba(0, 0, 0, 0.5))
+
+        a
+            display: block
+            width: 100%
+            height: 100%
+            svg
+                height: 25px
+                width: 25px
+
+                @media all and (min-width: $screen-smd)
+                    width: 30px
+                    height: 30px
+
+                @media all and (min-width: $screen-fhd)
+                    width: 50px
+                    height: 50px
+
+
+                path
+                    transition: fill 0.25s ease
+
+    .vk
+        animation: social-appearance 5.8s ease
+        &:hover
+            svg path
+                fill: #5181b8
+
+    .github
+        animation: social-appearance 6s ease
+        &:hover
+            svg path
+                fill: gray
+
+    .linkedin
+        animation: social-appearance 6.2s ease
+        &:hover
+            svg path
+                fill: #0097bd
+
+@keyframes social-appearance
+    0%, 90%
+        opacity: 0
+        transform: translateX(100%)
+    100%
+        opacity: 1
+        transform: translateX(0)
