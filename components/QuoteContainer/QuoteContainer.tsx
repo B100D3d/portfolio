@@ -6,10 +6,10 @@ const QuoteContainer = () => {
     const quote = useQuote(9000)
 
     return (
-        <div className={styles.quoteBox}>
+        <div className={styles.quoteContainer}>
             <i />
-            <div className={styles.textBoxBackground} />
-            <div className={styles.textBox}>
+            <div className={styles.quoteBox}>
+                <div className={styles.animContainer} />
                 <SwitchTransition>
                     <CSSTransition
                         key={quote.key}
