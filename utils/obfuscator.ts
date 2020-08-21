@@ -1,4 +1,4 @@
-import { random, range } from "@/utils/index"
+import { random, range } from "@utils/index"
 
 class Bit {
     private static Decoded = -1

@@ -1,5 +1,5 @@
 import { range, timeout } from "./index"
-import Obfuscator from "@/utils/obfuscator"
+import Obfuscator from "@utils/obfuscator"
 
 export const addChars = async (
     chars: string,

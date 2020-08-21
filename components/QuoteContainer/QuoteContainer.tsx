@@ -1,5 +1,5 @@
 import styles from "./quote-container.module.sass"
-import useQuote from "@/hooks/useQuote"
+import useQuote from "@hooks/useQuote"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
 
 const QuoteContainer = () => {

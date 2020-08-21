@@ -1,7 +1,7 @@
 import Head from "next/head"
-import MainBlock from "@/components/MainBlock/MainBlock"
-import Header from "@/components/Header/Header"
-import Logo from "@/components/Logo/Logo"
+import MainBlock from "@components/MainBlock/MainBlock"
+import Header from "@components/Header/Header"
+import Logo from "@components/Logo/Logo"
 
 const MainPage = () => {
     return (

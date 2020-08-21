@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react"
-import { random } from "@/utils"
+import { random } from "@utils"
 
 const getRandomQuote = (quotes: Array<Quote>) => {
     return quotes[random(quotes.length)]

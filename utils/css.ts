@@ -1,7 +1,7 @@
 export const registerCSSColorProperty = (
     name: string,
     initialValue: string
-) => {
+): boolean => {
     const hasBrowserSupport =
         typeof window !== "undefined"
             ? typeof window.CSS.registerProperty === "function"

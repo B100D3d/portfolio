@@ -1,5 +1,5 @@
 import styles from "./main-block-background.module.sass"
-import useWindowSize from "@/hooks/useWindowSize"
+import useWindowSize from "@hooks/useWindowSize"
 import { useMemo } from "react"
 
 const MainBlockBackground = () => {

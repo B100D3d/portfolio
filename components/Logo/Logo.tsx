@@ -1,6 +1,6 @@
 import styles from "./logo.module.sass"
 import { useCallback, useEffect, useState } from "react"
-import { addChars, removeLastChars } from "@/utils/animation"
+import { addChars, removeLastChars } from "@utils/animation"
 
 const LOGO_TEXT = "DEV."
 const SUB_TEXT = "ourer"

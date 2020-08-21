@@ -1,9 +1,9 @@
 import styles from "./about.module.sass"
-import ColorFilledText from "@/components/ColorFilledText/ColorFilledText"
+import ColorFilledText from "@components/ColorFilledText/ColorFilledText"
 import { useCallback, useEffect, useRef, useState } from "react"
-import { timeout } from "@/utils"
-import { revealText } from "@/utils/animation"
-import RainbowButton from "@/components/RainbowButton/RainbowButton"
+import { timeout } from "@utils"
+import { revealText } from "@utils/animation"
+import RainbowButton from "@components/RainbowButton/RainbowButton"
 
 const animationTimeout = 4900
 
