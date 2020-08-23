@@ -9,25 +9,30 @@ const QuoteContainer = () => {
         <div className={styles.quoteContainer}>
             <i />
             <div className={styles.quoteBox}>
-                <div className={styles.animContainer} />
-                <SwitchTransition>
-                    <CSSTransition
-                        key={quote.key}
-                        classNames="fade-slide"
-                        addEndListener={(node, done) =>
-                            node.addEventListener("transitionend", done, false)
-                        }
-                    >
-                        <div className={styles.textContainer}>
-                            <span className={styles.textContainer__title}>
-                                {quote.title}
-                            </span>
-                            <span className={styles.textContainer__quote}>
-                                {quote.text}
-                            </span>
-                        </div>
-                    </CSSTransition>
-                </SwitchTransition>
+                <div className={styles.contentContainer}>
+                    <SwitchTransition>
+                        <CSSTransition
+                            key={quote.key}
+                            classNames="fade-slide"
+                            addEndListener={(node, done) =>
+                                node.addEventListener(
+                                    "transitionend",
+                                    done,
+                                    false
+                                )
+                            }
+                        >
+                            <div className={styles.textContainer}>
+                                <span className={styles.textContainer__title}>
+                                    {quote.title}
+                                </span>
+                                <span className={styles.textContainer__quote}>
+                                    {quote.text}
+                                </span>
+                            </div>
+                        </CSSTransition>
+                    </SwitchTransition>
+                </div>
             </div>
         </div>
     )
