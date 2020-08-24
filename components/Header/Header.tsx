@@ -1,4 +1,5 @@
 import styles from "./header.module.sass"
+import Anchor from "@components/Anchor/Anchor"
 
 const Header = () => {
     return (
@@ -6,13 +7,19 @@ const Header = () => {
             <div className={styles.sizer}>DEV</div>
             <ul>
                 <li>
-                    <a data-text="Home">Home</a>
+                    <Anchor to="main-block" data-text="Home">
+                        Home
+                    </Anchor>
                 </li>
                 <li>
-                    <a data-text="Works">Works</a>
+                    <Anchor to="works-block" data-text="Works">
+                        Works
+                    </Anchor>
                 </li>
                 <li>
-                    <a data-text="About">About</a>
+                    <Anchor to="about-block" data-text="About">
+                        About
+                    </Anchor>
                 </li>
             </ul>
         </header>

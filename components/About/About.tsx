@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import { timeout } from "@utils"
 import { revealText } from "@utils/animation"
 import RainbowButton from "@components/RainbowButton/RainbowButton"
-
+import Anchor from "@components/Anchor/Anchor"
 const animationTimeout = 4900
 
 const About = () => {
@@ -41,11 +41,11 @@ const About = () => {
                 </ColorFilledText>{" "}
             </div>
             <span className={styles.aboutContainer__about}>{aboutText}</span>
-            <div className={styles.aboutBtnContainer}>
+            <Anchor to="about-block" className={styles.aboutBtnContainer}>
                 <RainbowButton className={styles.aboutBtn}>
                     About me
                 </RainbowButton>
-            </div>
+            </Anchor>
         </div>
     )
 }
