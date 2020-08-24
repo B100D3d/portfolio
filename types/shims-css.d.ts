@@ -1,8 +1,9 @@
-declare namespace CSS {
-    function registerProperty(settings: {
-        name: string
-        initialValue: any
-        syntax: string
-        inherits: boolean
-    }): void
+import * as CSS from "csstype"
+
+declare global {
+    namespace React {
+        export interface CSSProperties extends CSS.Properties<string | number> {
+            "--sideLength"?: string
+        }
+    }
 }
