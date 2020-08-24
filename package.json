@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
+    "animated-scroll-to": "^2.0.10",
     "classnames": "^2.2.6",
     "lodash": "^4.17.20",
     "next": "9.5.2",

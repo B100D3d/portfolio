@@ -1,19 +1,31 @@
+import animateScrollTo from "animated-scroll-to"
 import useScrollByBlock from "@hooks/useScrollByBlock"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { maxBlockIndex } from "@redux/actions/scroll"
 import { currentBlockIndexSelector } from "@redux/selectors/scroll"
-import { scroll, scrollSmooth } from "@utils"
-import useWindowSize from "@hooks/useWindowSize"
+import { timeout } from "@utils"
 
 interface HorizontalScrollProps {
     children: React.ReactNode
 }
 
+export const scrollSmooth = (to: number) => {
+    const animationTime = document.documentElement.clientWidth < 768 ? 500 : 700
+    const speed = (animationTime / document.documentElement.clientWidth) * 1000
+    animateScrollTo([to, null], {
+        elementToScroll: document.body,
+        cancelOnUserAction: false,
+        speed: speed,
+        easing: (t) => t * t * (3 - 2 * t),
+    })
+}
+
+const FIRST_ANIMATION_TIME = 6000
+
 const HorizontalScroll: React.FunctionComponent<HorizontalScrollProps> = ({
     children,
 }) => {
-    const windowSize = useWindowSize()
     const { next, prev, scrollValue } = useScrollByBlock()
     const currentBlockIndex = useSelector(currentBlockIndexSelector)
     const dispatch = useDispatch()
@@ -24,11 +36,7 @@ const HorizontalScroll: React.FunctionComponent<HorizontalScrollProps> = ({
 
     useEffect(() => {
         scrollSmooth(scrollValue)
-    }, [currentBlockIndex])
-
-    useEffect(() => {
-        scroll(scrollValue)
-    }, [windowSize])
+    }, [scrollValue])
 
     useEffect(() => {
         const touch = { x: 0, y: 0 }
@@ -67,10 +75,12 @@ const HorizontalScroll: React.FunctionComponent<HorizontalScrollProps> = ({
             if (delta === -1) prev()
             delta = 0
         }
-        document.addEventListener("wheel", handleScroll)
-        document.addEventListener("touchstart", handleTouch)
-        document.addEventListener("touchmove", handleTouchMove)
-        document.addEventListener("touchend", handleTouchEnd)
+        timeout(FIRST_ANIMATION_TIME).then(() => {
+            document.addEventListener("wheel", handleScroll)
+            document.addEventListener("touchstart", handleTouch)
+            document.addEventListener("touchmove", handleTouchMove)
+            document.addEventListener("touchend", handleTouchEnd)
+        })
         return () => {
             document.removeEventListener("wheel", handleScroll)
             document.removeEventListener("touchstart", handleTouch)

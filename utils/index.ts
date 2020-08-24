@@ -14,15 +14,3 @@ export const random = (from: number, to?: number): number => {
 }
 
 export const timeout = (ms: number) => new Promise((r) => setTimeout(r, ms))
-
-export const scroll = (to: number, smooth = false) => {
-    document.body.scrollTo({
-        top: 0,
-        left: to,
-        behavior: smooth ? "smooth" : "auto",
-    })
-}
-
-export const scrollSmooth = (to: number) => {
-    scroll(to, true)
-}
