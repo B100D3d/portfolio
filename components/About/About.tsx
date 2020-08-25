@@ -41,7 +41,11 @@ const About = () => {
                 </ColorFilledText>{" "}
             </div>
             <span className={styles.aboutContainer__about}>{aboutText}</span>
-            <Anchor to="about-block" className={styles.aboutBtnContainer}>
+            <Anchor
+                timeout={300}
+                to="about-block"
+                className={styles.aboutBtnContainer}
+            >
                 <RainbowButton className={styles.aboutBtn}>
                     About me
                 </RainbowButton>
