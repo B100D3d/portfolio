@@ -11,7 +11,7 @@ interface HorizontalScrollProps {
 }
 
 export const scrollSmooth = (to: number) => {
-    const animationTime = document.documentElement.clientWidth < 768 ? 500 : 700
+    const animationTime = document.documentElement.clientWidth < 768 ? 500 : 800
     const speed = (animationTime / document.documentElement.clientWidth) * 1000
     animateScrollTo([to, null], {
         elementToScroll: document.body,
@@ -54,18 +54,14 @@ const HorizontalScroll: React.FunctionComponent<HorizontalScrollProps> = ({
         }
         const handleTouchMove = (e: TouchEvent) => {
             if (
-                (e.touches[0].pageX < touch.x &&
-                    touch.x - e.touches[0].pageX > 50) ||
-                (e.touches[0].pageY < touch.y &&
-                    touch.y - e.touches[0].pageY > 50)
+                e.touches[0].pageX < touch.x &&
+                touch.x - e.touches[0].pageX > 50
             ) {
                 delta = 1
             }
             if (
-                (e.touches[0].pageX > touch.x &&
-                    e.touches[0].pageX - touch.x > 50) ||
-                (e.touches[0].pageY > touch.y &&
-                    e.touches[0].pageY - touch.y > 50)
+                e.touches[0].pageX > touch.x &&
+                e.touches[0].pageX - touch.x > 50
             ) {
                 delta = -1
             }
