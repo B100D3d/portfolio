@@ -1,6 +1,6 @@
 import styles from "./rainbow-button.module.sass"
 import classNames from "classnames"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { registerCSSColorProperty } from "@utils/css"
 import useRainbow from "@hooks/useRainbow"
 
@@ -8,6 +8,13 @@ interface RainbowButtonProps {
     children?: React.ReactNode
     className?: string
     colors?: Array<string>
+    interval?: number
+}
+
+interface Ripple {
+    top: number
+    left: number
+    key: string
 }
 
 const COLORS: Array<string> = [
@@ -29,9 +36,11 @@ const RainbowButton: React.FunctionComponent<RainbowButtonProps> = ({
     children,
     className,
     colors = COLORS,
+    interval = 2000,
 }) => {
     const [isEnabled, setEnabled] = useState(false)
-    const gradientColors = useRainbow({ colors, interval: 2000 })
+    const gradientColors = useRainbow({ colors, interval })
+    const [ripples, setRipples] = useState<Array<Ripple>>([])
 
     useEffect(() => {
         colors.slice(0, 3).forEach((color, i) => {
@@ -39,6 +48,29 @@ const RainbowButton: React.FunctionComponent<RainbowButtonProps> = ({
             setEnabled(isEnabled)
         })
     }, [])
+
+    const handleClick = useCallback(
+        (e: React.MouseEvent<HTMLButtonElement>) => {
+            const target = e.target as HTMLButtonElement
+            const key = String(Math.random())
+            setRipples([
+                ...ripples,
+                {
+                    top: e.clientY - target.offsetTop - target.clientHeight,
+                    left: e.clientX - target.offsetLeft,
+                    key,
+                },
+            ])
+            setTimeout(
+                () =>
+                    setRipples((ripples) =>
+                        ripples.filter((ripple) => ripple.key !== key)
+                    ),
+                800
+            )
+        },
+        [ripples]
+    )
 
     return (
         <button
@@ -54,7 +86,20 @@ const RainbowButton: React.FunctionComponent<RainbowButtonProps> = ({
                     : undefined
             }
             className={classNames(styles.rainbowButton, className)}
+            onMouseDown={handleClick}
         >
+            <div className={styles.rippleContainer}>
+                {ripples.map((ripple) => (
+                    <i
+                        key={ripple.key}
+                        style={{
+                            top: ripple.top,
+                            left: ripple.left,
+                        }}
+                        className={styles.ripple}
+                    />
+                ))}
+            </div>
             {children}
         </button>
     )
