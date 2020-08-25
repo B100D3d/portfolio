@@ -16,7 +16,7 @@ const MainPage = () => {
             <HorizontalScroll>
                 <MainBlock id="main-block" />
                 <WorksBlock id="works-block" />
-                <WorksBlock id="about-block" /> {/*For Test*/}
+                <WorksBlock id="about-block" />
             </HorizontalScroll>
         </>
     )

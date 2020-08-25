@@ -57,9 +57,10 @@
                     width: 80%
                     right: auto
                     left: 10%
-                a
+                a, a.active
                     transition: none
                     color: transparent
+
 
                     &::before, &::after
                         color: white
@@ -75,7 +76,13 @@
                 height: 100%
                 color: #b0b2c3
                 position: relative
-                transition: color 0s 0.5s
+                transition: color 0s 0.1s
+
+                &.active
+                    color: white
+
+                    &::before, &::after
+                        color: white
 
                 &::before, &::after
                     content: attr(data-text)

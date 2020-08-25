@@ -1,23 +1,41 @@
 import styles from "./header.module.sass"
 import Anchor from "@components/Anchor/Anchor"
+import { useSelector } from "react-redux"
+import { currentBlockIndexSelector } from "@redux/selectors/scroll"
 
 const Header = () => {
+    const currentBlockIndex = useSelector(currentBlockIndexSelector)
     return (
         <header className={styles.header}>
             <div className={styles.sizer}>DEV</div>
             <ul>
                 <li>
-                    <Anchor to="main-block" data-text="Home">
+                    <Anchor
+                        activeClassName={styles.active}
+                        to="main-block"
+                        data-text="Home"
+                        active={currentBlockIndex === 0}
+                    >
                         Home
                     </Anchor>
                 </li>
                 <li>
-                    <Anchor to="works-block" data-text="Works">
+                    <Anchor
+                        activeClassName={styles.active}
+                        to="works-block"
+                        data-text="Works"
+                        active={currentBlockIndex === 1}
+                    >
                         Works
                     </Anchor>
                 </li>
                 <li>
-                    <Anchor to="about-block" data-text="About">
+                    <Anchor
+                        activeClassName={styles.active}
+                        to="about-block"
+                        data-text="About"
+                        active={currentBlockIndex === 2}
+                    >
                         About
                     </Anchor>
                 </li>
