@@ -9,14 +9,16 @@ import { BlockProps } from "@types"
 interface MainBlockProps extends BlockProps {
     id?: string
     className?: string
+    isMobile?: boolean
 }
 
 const MainBlock: React.FunctionComponent<MainBlockProps> = ({
     id,
     className,
+    isMobile,
 }) => {
     return (
-        <div
+        <section
             id={id}
             className={classNames(styles.mainBlockContainer, className)}
         >
@@ -25,8 +27,9 @@ const MainBlock: React.FunctionComponent<MainBlockProps> = ({
                 <About />
                 <QuoteContainer />
                 <Social />
+                <i>{isMobile ? "Swipe" : "Scroll"}</i>
             </main>
-        </div>
+        </section>
     )
 }
 

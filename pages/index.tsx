@@ -1,11 +1,24 @@
+import { GetServerSideProps, InferGetServerSidePropsType } from "next"
 import MainBlock from "@components/MainBlock/MainBlock"
 import Header from "@components/Header/Header"
 import Logo from "@components/Logo/Logo"
 import Head from "@components/Head/Head"
 import WorksBlock from "@components/WorksBlock/WorksBlock"
 import HorizontalScroll from "@components/HorizontalScroll/HorizontalScroll"
+import { detectMobile } from "@utils"
 
-const MainPage = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const isMobile = detectMobile(context.req.headers["user-agent"])
+    return {
+        props: {
+            isMobile,
+        },
+    }
+}
+
+type MainPageProps = InferGetServerSidePropsType<typeof getServerSideProps>
+
+const MainPage: React.FunctionComponent<MainPageProps> = ({ isMobile }) => {
     return (
         <>
             <Head>
@@ -14,7 +27,7 @@ const MainPage = () => {
             <Logo />
             <Header />
             <HorizontalScroll>
-                <MainBlock id="main-block" />
+                <MainBlock isMobile={isMobile} id="main-block" />
                 <WorksBlock id="works-block" />
                 <WorksBlock id="about-block" />
             </HorizontalScroll>

@@ -14,3 +14,19 @@ export const random = (from: number, to?: number): number => {
 }
 
 export const timeout = (ms: number) => new Promise((r) => setTimeout(r, ms))
+
+export const detectMobile = (userAgent?: string) => {
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i,
+    ]
+
+    return toMatch.some((reg) => {
+        return userAgent?.match(reg)
+    })
+}

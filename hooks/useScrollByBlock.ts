@@ -23,7 +23,7 @@ const useScrollByBlock: useScrollByBlockHook = () => {
     const { width } = useWindowSize()
     const currentBlockIndex = useSelector(currentBlockIndexSelector)
     const dispatch = useDispatch()
-    const scrollValue = useMemo(() => width * currentBlockIndex + 0.5, [
+    const scrollValue = useMemo(() => (width + 0.5) * currentBlockIndex, [
         width,
         currentBlockIndex,
     ])

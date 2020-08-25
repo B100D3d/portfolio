@@ -1,3 +1,4 @@
+@import "styles/variables"
 
 .mainBlockContainer
     position: relative
@@ -14,4 +15,43 @@
         height: 100%
         justify-content: space-between
         align-items: center
+
+        > i
+            position: absolute
+            top: 30px
+            right: 50px
+            color: white
+            font-size: 0.8rem
+            animation: scroll-swipe-appearance 7s ease
+
+            @media all and (min-width: $screen-smd)
+                right: 40%
+
+            @media all and (min-height: 900px)
+                top: 60px
+
+            &::before
+                content: "→"
+                font-size: 1.2em
+                position: absolute
+                bottom: 0
+                left: 50%
+                animation: arrow-translate 1s ease infinite alternate
+
+
+@keyframes arrow-translate
+    from
+        transform: translate(-70%, 50%)
+    to
+        transform: translate(0, 50%)
+
+
+@keyframes scroll-swipe-appearance
+    0%, 70%
+        opacity: 0
+        transform: translateX(-100%)
+    100%
+        opacity: 1
+        transform: translateX(0)
+
 

@@ -13,12 +13,12 @@ const WorksBlock: React.FunctionComponent<WorksBlockProps> = ({
     animate = false,
 }) => {
     return (
-        <div
+        <section
             id={id}
             className={classNames(styles.worksBlockContainer, className, {
                 [styles.animate]: animate,
             })}
-        ></div>
+        ></section>
     )
 }
 
