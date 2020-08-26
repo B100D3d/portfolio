@@ -10,6 +10,7 @@ export const random = (from: number, to?: number): number => {
     if (!to) {
         ;[from, to] = [0, from]
     }
+    to -= from
     return Math.floor(Math.random() * to + from)
 }
 
