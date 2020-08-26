@@ -1,22 +1,23 @@
 .fade-slide-enter
+    position: absolute
+    top: 0
+    left: 0
     opacity: 0
-    transform: translateX(50%)
+    transform: translateX(100%)
+
+.fade-slide-enter-active
+    transition: transform 1000ms, opacity 1000ms
+    opacity: 1
+    transform: translateY(0)
 
 .fade-slide-exit
     opacity: 1
     transform: translateY(0)
 
-.fade-slide-enter-active
-    opacity: 1
-    transform: translateY(0)
-
 .fade-slide-exit-active
+    transition: transform 1000ms, opacity 700ms
     opacity: 0
-    transform: translateX(-50%)
+    transform: translateX(-100%)
 
-.fade-slide-enter-active
-    transition: transform 800ms, opacity 800ms
 
-.fade-slide-exit-active
-    transition: transform 500ms, opacity 500ms
 

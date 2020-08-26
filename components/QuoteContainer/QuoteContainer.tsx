@@ -1,6 +1,6 @@
 import styles from "./quote-container.module.sass"
 import useQuote from "@hooks/useQuote"
-import { CSSTransition, SwitchTransition } from "react-transition-group"
+import { CSSTransition, TransitionGroup } from "react-transition-group"
 
 const QuoteContainer = () => {
     const quote = useQuote(9000)
@@ -10,17 +10,11 @@ const QuoteContainer = () => {
             <i />
             <div className={styles.quoteBox}>
                 <div className={styles.contentContainer}>
-                    <SwitchTransition>
+                    <TransitionGroup>
                         <CSSTransition
                             key={quote.key}
                             classNames="fade-slide"
-                            addEndListener={(node, done) =>
-                                node.addEventListener(
-                                    "transitionend",
-                                    done,
-                                    false
-                                )
-                            }
+                            timeout={1000}
                         >
                             <div className={styles.textContainer}>
                                 <span className={styles.textContainer__title}>
@@ -31,7 +25,7 @@ const QuoteContainer = () => {
                                 </span>
                             </div>
                         </CSSTransition>
-                    </SwitchTransition>
+                    </TransitionGroup>
                 </div>
             </div>
         </div>
