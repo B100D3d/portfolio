@@ -11,7 +11,7 @@
         color: white
         overflow: hidden
         --height: 100%
-        transition: clip-path 1.5s ease
+        transition: clip-path 1.5s ease var(--delay, 0s)
         clip-path: polygon(0 var(--height), 100% var(--height), 100% 100%, 0 100%)
 
         &.animate
