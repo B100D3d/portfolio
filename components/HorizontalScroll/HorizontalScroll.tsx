@@ -1,6 +1,6 @@
 import animateScrollTo from "animated-scroll-to"
 import useScrollByBlock from "@hooks/useScrollByBlock"
-import { useEffect } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { maxBlockIndex } from "@redux/actions/scroll"
 import { currentBlockIndexSelector } from "@redux/selectors/scroll"
@@ -10,10 +10,10 @@ interface HorizontalScrollProps {
     children: React.ReactNode
 }
 
-export const scrollSmooth = (to: number) => {
+export const scrollSmooth = async (to: number): Promise<boolean> => {
     const animationTime = document.documentElement.clientWidth < 768 ? 500 : 800
     const speed = (animationTime / document.documentElement.clientWidth) * 1000
-    animateScrollTo([to, null], {
+    return await animateScrollTo([to, null], {
         elementToScroll: document.body,
         cancelOnUserAction: false,
         speed: speed,
@@ -26,8 +26,20 @@ const FIRST_ANIMATION_TIME = 6000
 const HorizontalScroll: React.FunctionComponent<HorizontalScrollProps> = ({
     children,
 }) => {
-    const { next, prev, scrollValue } = useScrollByBlock()
+    const [scrollDone, setScrollDone] = useState(true)
     const currentBlockIndex = useSelector(currentBlockIndexSelector)
+    const blocks = useMemo(
+        () =>
+            React.Children.map(children, (child, i) => {
+                if (React.isValidElement(child)) {
+                    return React.cloneElement(child, {
+                        animate: i === currentBlockIndex && scrollDone,
+                    })
+                }
+            }),
+        [scrollDone]
+    )
+    const { next, prev, scrollValue } = useScrollByBlock()
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -35,7 +47,8 @@ const HorizontalScroll: React.FunctionComponent<HorizontalScrollProps> = ({
     }, [])
 
     useEffect(() => {
-        scrollSmooth(scrollValue)
+        setScrollDone(false)
+        scrollSmooth(scrollValue).then((done) => setScrollDone(done))
     }, [scrollValue])
 
     useEffect(() => {
@@ -85,17 +98,7 @@ const HorizontalScroll: React.FunctionComponent<HorizontalScrollProps> = ({
         }
     }, [])
 
-    return (
-        <>
-            {React.Children.map(children, (child, i) => {
-                if (React.isValidElement(child)) {
-                    return React.cloneElement(child, {
-                        animate: i === currentBlockIndex,
-                    })
-                }
-            })}
-        </>
-    )
+    return <>{blocks}</>
 }
 
 export default HorizontalScroll
