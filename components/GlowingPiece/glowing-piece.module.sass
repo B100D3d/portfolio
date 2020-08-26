@@ -1,0 +1,41 @@
+
+
+.glow
+    position: absolute
+    width: 40px
+    height: 40px
+    top: 10px
+    left: 50px
+    background: var(--glow-color)
+    box-shadow: 0 0 40px 10px var(--glow-color)
+    pointer-events: none
+
+    @for $i from 1 through 4
+        &--animation-#{$i}
+            animation: move-#{$i} 5s ease infinite alternate
+
+    &--circle
+        border-radius: 50%
+
+    &--superellipse
+        border-radius: 8px
+
+
+@keyframes move-1
+    from
+        transform: translateY(0)
+    to
+        transform: translateY(200%)
+
+@keyframes move-2
+    from
+        transform: translateY(100%)
+    to
+        transform: translateY(-100%)
+
+@keyframes move-3
+    from
+        transform: translateY(0)
+    to
+        transform: translateY(150%)
+
