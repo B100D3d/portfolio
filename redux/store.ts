@@ -1,7 +1,9 @@
 import { createStore, combineReducers, compose } from "redux"
-import { scroll } from "@redux/reducers/scroll"
+import scroll from "@redux/reducers/scroll"
+import main from "@redux/reducers/main"
 
 const rootReducer = combineReducers({
+    main,
     scroll,
 })
 

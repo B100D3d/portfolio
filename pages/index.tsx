@@ -6,6 +6,9 @@ import Head from "@components/Head/Head"
 import WorksBlock from "@components/WorksBlock/WorksBlock"
 import HorizontalScroll from "@components/HorizontalScroll/HorizontalScroll"
 import { detectMobile } from "@utils"
+import { useDispatch } from "react-redux"
+import { useEffect } from "react"
+import { setMobile } from "@redux/actions/main"
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const isMobile = detectMobile(context.req.headers["user-agent"])
@@ -19,6 +22,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 type MainPageProps = InferGetServerSidePropsType<typeof getServerSideProps>
 
 const MainPage: React.FunctionComponent<MainPageProps> = ({ isMobile }) => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(setMobile(isMobile))
+    }, [])
+
     return (
         <>
             <Head>
@@ -27,7 +36,7 @@ const MainPage: React.FunctionComponent<MainPageProps> = ({ isMobile }) => {
             <Logo />
             <Header />
             <HorizontalScroll>
-                <MainBlock isMobile={isMobile} id="main-block" />
+                <MainBlock id="main-block" />
                 <WorksBlock id="works-block" />
                 <WorksBlock id="about-block" />
             </HorizontalScroll>

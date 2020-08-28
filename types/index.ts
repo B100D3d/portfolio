@@ -1,7 +1,17 @@
-import { MAX_INDEX, NEXT_BLOCK, PREV_BLOCK, TO_BLOCK } from "@redux/actionTypes"
+import {
+    MAX_INDEX,
+    NEXT_BLOCK,
+    PREV_BLOCK,
+    SET_MOBILE,
+    TO_BLOCK,
+} from "@redux/actionTypes"
 
 export interface BlockProps {
     animate?: boolean
+}
+
+export interface MainState {
+    isMobile: boolean
 }
 
 export interface ScrollState {
@@ -28,3 +38,10 @@ export interface MaxBlockIndex {
 }
 
 export type ScrollActionTypes = NextBlock | PrevBlock | ToBlock | MaxBlockIndex
+
+export interface Mobile {
+    type: typeof SET_MOBILE
+    isMobile: boolean
+}
+
+export type MainActionTypes = Mobile

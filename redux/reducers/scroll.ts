@@ -6,7 +6,7 @@ const initialState: ScrollState = {
     maxBlockIndex: 1,
 }
 
-export const scroll = (state = initialState, action: ScrollActionTypes) => {
+const scroll = (state = initialState, action: ScrollActionTypes) => {
     switch (action.type) {
         case NEXT_BLOCK:
             const nextIndex =
@@ -28,3 +28,5 @@ export const scroll = (state = initialState, action: ScrollActionTypes) => {
             return state
     }
 }
+
+export default scroll
