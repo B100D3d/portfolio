@@ -1,5 +1,9 @@
 @import "styles/variables"
 
+$vk-color: #5181b8
+$github-color: gray
+$linkedin-color: #0097bd
+
 .social
     position: absolute
     top: 30%
@@ -41,24 +45,25 @@
 
                 path
                     transition: fill 0.25s ease
+                    fill: white
 
     .vk
         animation: social-appearance 5.8s ease
         &:hover
             svg path
-                fill: #5181b8
+                fill: $vk-color
 
     .github
         animation: social-appearance 6s ease
         &:hover
             svg path
-                fill: gray
+                fill: $github-color
 
     .linkedin
         animation: social-appearance 6.2s ease
         &:hover
             svg path
-                fill: #0097bd
+                fill: $linkedin-color
 
 @keyframes social-appearance
     0%, 90%
