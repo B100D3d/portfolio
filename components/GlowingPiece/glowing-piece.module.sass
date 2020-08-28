@@ -9,13 +9,20 @@
     background: var(--glow-color)
     box-shadow: 0 0 40px 10px var(--glow-color)
     pointer-events: none
+    backface-visibility: hidden
+    perspective: 1000px
+    transform: translate3d(0, 0, 0)
+    will-change: transform, left, top
+    filter: blur(2px)
+
 
     @for $i from 1 through 4
         &--animation-#{$i}
-            animation: move-#{$i} 5s ease infinite alternate
+            animation: move-#{$i} 7s linear infinite alternate
 
     &--circle
         border-radius: 50%
+        height: 45px
 
     &--superellipse
         border-radius: 8px
@@ -23,19 +30,19 @@
 
 @keyframes move-1
     from
-        transform: translateY(0)
+        transform: translate3d(0, 0, 0)
     to
-        transform: translateY(200%)
+        transform: translate3d(0, 200%, 0) rotate(90deg)
 
 @keyframes move-2
     from
-        transform: translateY(100%)
+        transform: translate3d(0, 100%, 0)
     to
-        transform: translateY(-100%)
+        transform: translate3d(0, -100%, 0) rotate(120deg)
 
 @keyframes move-3
     from
-        transform: translateY(0)
+        transform: translate3d(0, 0, 0)
     to
-        transform: translateY(150%)
+        transform: translate3d(0, 150%, 0) rotate(60deg)
 

@@ -1,10 +1,10 @@
 import styles from "./works-block.module.sass"
 import classNames from "classnames"
-import GlowingPiece from "@components/GlowingPiece/GlowingPiece"
 import { BlockProps } from "@types"
-import { useLayoutEffect, useState } from "react"
-import { random } from "@utils"
-import ColorFilledText from "@components/ColorFilledText/ColorFilledText"
+import WorksContainer from "@components/WorksContainer/WorksContainer"
+import { useSelector } from "react-redux"
+import { isMobileSelector } from "@redux/selectors/main"
+import GlowingBackground from "@components/GlowingBackground/GlowingBackground"
 
 interface WorksBlockProps extends BlockProps {
     id?: string
@@ -14,18 +14,9 @@ interface WorksBlockProps extends BlockProps {
 const WorksBlock: React.FunctionComponent<WorksBlockProps> = ({
     id,
     className,
-    animate = false,
+    animate,
 }) => {
-    const [glowingStyles, setGlowingStyles] = useState<
-        Array<React.CSSProperties>
-    >([])
-    const [contentHover, setContentHover] = useState(false)
-
-    useLayoutEffect(() => {
-        if (animate) {
-            setGlowingStyles(getGlowingStyles())
-        }
-    }, [animate])
+    const isMobile = useSelector(isMobileSelector)
 
     return (
         <section
@@ -34,48 +25,17 @@ const WorksBlock: React.FunctionComponent<WorksBlockProps> = ({
                 [styles.animate]: animate,
             })}
         >
-            <div
-                onMouseOver={() => setContentHover(true)}
-                onMouseOut={() => setContentHover(false)}
-                className={styles.contentContainer}
-            >
-                <div className={styles.contentContainer__background} />
-                <div className={styles.glowingContainer}>
-                    {glowingStyles.map((style) => (
-                        <GlowingPiece
-                            key={style.top}
-                            form="random"
-                            style={style}
-                        />
-                    ))}
-                </div>
-                <div className={styles.contentContainer__title}>
-                    <ColorFilledText delay="100ms" animate={contentHover}>
-                        TGMT
-                    </ColorFilledText>
-                </div>
-                <div className={styles.contentContainer__avatar}>AVATAR</div>
-                <div className={styles.contentContainer__description}>
-                    There will be an obfuscate description that reveal on hover
-                </div>
+            <div className={styles.contentContainer}>
+                <GlowingBackground animate={animate} />
+                <div
+                    className={classNames(styles.contentContainer__background, {
+                        [styles.blur]: !isMobile,
+                    })}
+                />
+                <WorksContainer />
             </div>
         </section>
     )
 }
-
-const getGlowingStyles = (): Array<React.CSSProperties> => [
-    {
-        top: "10%",
-        left: `${random(30, 70)}%`,
-    },
-    {
-        top: "50%",
-        left: `${random(5, 40)}%`,
-    },
-    {
-        top: "80%",
-        left: `${random(60, 95)}%`,
-    },
-]
 
 export default WorksBlock
