@@ -16,13 +16,13 @@ const useRainbow: useRainbowHook = ({
     visibleColorsCount = 3,
 }) => {
     const paletteSize = useMemo(() => colors.length, [colors])
-    const intervalCount = useIncrementingNumber({
+    const intervalIndex = useIncrementingNumber({
         interval,
         mod: paletteSize,
     })
 
     return range(visibleColorsCount).map(
-        (index) => colors[(intervalCount + index) % paletteSize]
+        (index) => colors[(intervalIndex + index) % paletteSize]
     )
 }
 
