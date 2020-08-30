@@ -1,4 +1,4 @@
-import { MainActionTypes, MainState } from "@types"
+import { MainActionTypes, MainState } from "@redux/types"
 
 const initialState: MainState = {
     isMobile: false,

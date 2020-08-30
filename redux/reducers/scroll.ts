@@ -1,5 +1,5 @@
 import { MAX_INDEX, NEXT_BLOCK, PREV_BLOCK, TO_BLOCK } from "@redux/actionTypes"
-import { ScrollActionTypes, ScrollState } from "@types"
+import { ScrollActionTypes, ScrollState } from "@redux/types"
 
 const initialState: ScrollState = {
     currentBlockIndex: 0,

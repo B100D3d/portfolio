@@ -17,24 +17,24 @@ class Bit {
 type Bitmap = Array<Bit>
 
 export default class Obfuscator {
-    private value = ""
-    private chars = ""
     bitmap: Bitmap = []
 
-    constructor(text: string, chars: string) {
-        this.value = text
-        this.chars = chars
+    constructor(
+        public readonly text: string,
+        public readonly chars = "█▓▒░█▓▒░█▓▒░<>/"
+    ) {
         this.init()
     }
 
-    init(): void {
-        this.bitmap = [...Array(this.value.length).keys()].map(
+    init(): this {
+        this.bitmap = [...Array(this.text.length).keys()].map(
             (key) => new Bit(key)
         )
+        return this
     }
 
     write(): string {
-        return this.value
+        return this.text
             .split("")
             .map((char, i) =>
                 this.bitmap[i].isEncoded() ? this.getRandomChar() : char

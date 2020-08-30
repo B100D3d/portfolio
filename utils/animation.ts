@@ -24,10 +24,10 @@ export const removeLastChars = async (
 }
 
 export async function* revealText(
-    text: string,
-    { duration = 1000, chars = "█▓▒░█▓▒░█▓▒░<>/" }
+    obfuscator: Obfuscator,
+    { duration = 1000 }
 ): AsyncGenerator<string> {
-    const obfuscator = new Obfuscator(text, chars)
+    const { text } = obfuscator
     const sleep = () => timeout(duration / text.length)
 
     yield obfuscator.write()
