@@ -6,10 +6,6 @@ import {
     TO_BLOCK,
 } from "@redux/actionTypes"
 
-export interface BlockProps {
-    animate?: boolean
-}
-
 export interface MainState {
     isMobile: boolean
 }

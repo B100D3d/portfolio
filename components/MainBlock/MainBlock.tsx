@@ -2,7 +2,7 @@ import styles from "./main-block.module.sass"
 import classNames from "classnames"
 import MainBlockBackground from "@components/MainBlock/MainBlockBackground/MainBlockBackground"
 import QuoteContainer from "@components/QuoteContainer/QuoteContainer"
-import About from "@components/About/About"
+import MainAbout from "@components/MainAbout/MainAbout"
 import Social from "@components/Social/Social"
 import { BlockProps } from "@types"
 import { useSelector } from "react-redux"
@@ -27,7 +27,7 @@ const MainBlock: React.FunctionComponent<MainBlockProps> = ({
         >
             <MainBlockBackground />
             <div className={styles.contentContainer}>
-                <About />
+                <MainAbout />
                 <QuoteContainer />
                 <Social />
                 <i>{isMobile ? "Swipe" : "Scroll"}</i>
