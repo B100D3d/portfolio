@@ -1,9 +1,10 @@
 import styles from "./quote-container.module.sass"
-import useQuote from "@hooks/useQuote"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
+import useSliderItem from "@hooks/useSliderItem"
+import quotes, { Quote } from "@components/QuoteContainer/Quotes"
 
 const QuoteContainer = () => {
-    const quote = useQuote(9000)
+    const { item: quote } = useSliderItem<Quote>(quotes, { interval: 10000 })
 
     return (
         <div className={styles.quoteContainer}>

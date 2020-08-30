@@ -1,34 +1,4 @@
-import { useCallback, useEffect, useState } from "react"
-import { random } from "@utils"
-
-const getRandomQuote = (quotes: Array<Quote>) => {
-    return quotes[random(quotes.length)]
-}
-
-const useQuote = (interval: number) => {
-    const [quote, setQuote] = useState<Quote>(QUOTES[0])
-
-    const handleQuote = useCallback(() => {
-        setQuote((prevQuote) => {
-            const quotesExceptCurrent = QUOTES.filter(
-                (quote) => quote !== prevQuote
-            )
-            return getRandomQuote(quotesExceptCurrent)
-        })
-    }, [quote])
-
-    useEffect(() => {
-        setQuote(getRandomQuote(QUOTES))
-        const id = setInterval(handleQuote, interval)
-        return () => clearInterval(id)
-    }, [])
-
-    return quote
-}
-
-export default useQuote
-
-interface Quote {
+export interface Quote {
     key: string
     title: JSX.Element
     text: JSX.Element
@@ -77,3 +47,5 @@ const QUOTES: Array<Quote> = [
         ),
     },
 ]
+
+export default QUOTES
