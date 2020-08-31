@@ -1,4 +1,4 @@
-export interface Quote {
+interface Quote {
     key: string
     title: JSX.Element
     text: JSX.Element

@@ -6,11 +6,9 @@ interface useSliderItemSettings {
     randomFirst?: boolean
 }
 
-interface ReturnValue<T> {
-    item: T
-    next: () => void
-    prev: () => void
-}
+type NextFN = () => void
+type PrevFN = () => void
+type ReturnValue<T> = [T, NextFN, PrevFN]
 
 const useSliderItem = <T>(
     items: Array<T>,
@@ -39,7 +37,7 @@ const useSliderItem = <T>(
         return () => timeoutId.current && clearTimeout(timeoutId.current)
     }, [index])
 
-    return { item, next, prev }
+    return [item, next, prev]
 }
 
 export default useSliderItem

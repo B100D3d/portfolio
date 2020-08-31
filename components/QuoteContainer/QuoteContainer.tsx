@@ -1,11 +1,13 @@
 import styles from "./quote-container.module.sass"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import useSliderItem from "@hooks/useSliderItem"
-import quotes, { Quote } from "@components/QuoteContainer/Quotes"
+import quotes from "@components/QuoteContainer/Quotes"
 
 const QuoteContainer = () => {
-    const { item: quote } = useSliderItem<Quote>(quotes, { interval: 10000 })
-
+    const [quote] = useSliderItem(quotes, {
+        interval: 10000,
+        randomFirst: true,
+    })
     return (
         <div className={styles.quoteContainer}>
             <i />
