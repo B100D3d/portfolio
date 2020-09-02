@@ -19,12 +19,12 @@ const useSliderItem = <T>(
     const timeoutId = useRef<NodeJS.Timeout>()
 
     const next = useCallback(() => {
-        setIndex((index + 1) % items.length)
-    }, [index, items])
+        setIndex((index) => (index + 1) % items.length)
+    }, [items])
 
     const prev = useCallback(() => {
-        setIndex(Math.abs((index - 1) % items.length))
-    }, [index, items])
+        setIndex((index) => Math.abs((index - 1) % items.length))
+    }, [items])
 
     useEffect(() => {
         if (settings?.randomFirst) setIndex(random(items.length))
