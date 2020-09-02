@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { maxBlockIndex } from "@redux/actions/scroll"
 import { currentBlockIndexSelector } from "@redux/selectors/scroll"
 import { timeout } from "@utils"
+import useWindowSize from "@hooks/useWindowSize"
 
 interface HorizontalScrollProps {
     children: React.ReactNode
@@ -26,8 +27,10 @@ const FIRST_ANIMATION_TIME = 6000
 const HorizontalScroll: React.FunctionComponent<HorizontalScrollProps> = ({
     children,
 }) => {
+    const { width } = useWindowSize()
     const [scrollDone, setScrollDone] = useState(true)
     const currentBlockIndex = useSelector(currentBlockIndexSelector)
+    const dispatch = useDispatch()
     const blocks = useMemo(
         () =>
             React.Children.map(children, (child, i) => {
@@ -39,8 +42,11 @@ const HorizontalScroll: React.FunctionComponent<HorizontalScrollProps> = ({
             }),
         [scrollDone]
     )
-    const { next, prev, scrollValue } = useScrollByBlock()
-    const dispatch = useDispatch()
+    const { next, prev } = useScrollByBlock()
+    const scrollValue = useMemo(() => (width + 0.5) * currentBlockIndex, [
+        width,
+        currentBlockIndex,
+    ])
 
     useEffect(() => {
         dispatch(maxBlockIndex(React.Children.count(children) - 1))
@@ -48,8 +54,12 @@ const HorizontalScroll: React.FunctionComponent<HorizontalScrollProps> = ({
 
     useEffect(() => {
         setScrollDone(false)
-        scrollSmooth(scrollValue).then((done) => setScrollDone(done))
-    }, [scrollValue])
+        scrollSmooth(scrollValue).then(setScrollDone)
+    }, [currentBlockIndex])
+
+    useEffect(() => {
+        document.body.scrollTo({ left: scrollValue })
+    }, [width])
 
     useEffect(() => {
         const touch = { x: 0, y: 0 }
