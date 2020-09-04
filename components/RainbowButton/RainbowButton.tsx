@@ -52,12 +52,13 @@ const RainbowButton: React.FunctionComponent<RainbowButtonProps> = ({
     const handleClick = useCallback(
         (e: React.MouseEvent<HTMLButtonElement>) => {
             const target = e.target as HTMLButtonElement
+            const rect = target.getBoundingClientRect()
             const key = String(Math.random())
             setRipples([
                 ...ripples,
                 {
-                    top: e.clientY - target.offsetTop - target.clientHeight,
-                    left: e.clientX - target.offsetLeft,
+                    top: e.clientY - rect.top,
+                    left: e.clientX - rect.left,
                     key,
                 },
             ])
