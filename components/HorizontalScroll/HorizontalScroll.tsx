@@ -43,7 +43,7 @@ const HorizontalScroll: React.FunctionComponent<HorizontalScrollProps> = ({
         [scrollDone]
     )
     const { next, prev } = useScrollByBlock()
-    const scrollValue = useMemo(() => (width + 0.5) * currentBlockIndex, [
+    const scrollValue = useMemo(() => width * currentBlockIndex, [
         width,
         currentBlockIndex,
     ])
