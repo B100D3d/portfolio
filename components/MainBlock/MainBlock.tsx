@@ -9,7 +9,6 @@ import { useSelector } from "react-redux"
 import { isMobileSelector } from "@redux/selectors/main"
 
 interface MainBlockProps extends BlockProps {
-    id?: string
     className?: string
     isMobile?: boolean
 }
@@ -23,7 +22,11 @@ const MainBlock: React.FunctionComponent<MainBlockProps> = ({
     return (
         <section
             id={id}
-            className={classNames(styles.mainBlockContainer, className)}
+            className={classNames(
+                styles.mainBlockContainer,
+                className,
+                "block"
+            )}
         >
             <MainBlockBackground />
             <div className={styles.contentContainer}>

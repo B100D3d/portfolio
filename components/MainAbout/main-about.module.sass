@@ -18,6 +18,7 @@
         font-size: 3rem
         font-weight: bold
         animation: title-appearance 5.2s ease
+        will-change: transform, opacity
 
         &:first-child
             animation: title-appearance 4.9s ease
@@ -28,15 +29,18 @@
         width: 100%
         white-space: nowrap
         animation: about-appearance 5.6s ease
+        will-change: transform, opacity
 
     .aboutBtnContainer
         margin-top: 50px
         animation: btn-appearance ease 5.6s
+        will-change: transform, opacity
         .aboutBtn
             font-size: 1rem
             &::after
                 content: "→"
                 display: inline-flex
+                will-change: transform
                 animation: arrowTranslate 1s ease infinite alternate
 
     @media all and (min-width: $screen-md)

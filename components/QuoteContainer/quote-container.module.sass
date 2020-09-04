@@ -16,6 +16,7 @@ $borderStyle: 5px solid var(--accent-color)
     backface-visibility: hidden
     perspective: 1000px
     transition: all 0.4s linear
+    will-change: transform, opacity
     animation: box-appearance 5s ease
 
     &:hover
@@ -77,6 +78,7 @@ $borderStyle: 5px solid var(--accent-color)
         transform-style: preserve-3d
         backface-visibility: hidden
         outline: 1px solid transparent
+        will-change: transform
         border-radius: 5px
 
         .contentContainer
