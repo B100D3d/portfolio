@@ -1,0 +1,62 @@
+
+
+.technologiesListContainer
+    display: flex
+    flex-direction: column
+    border-radius: 20px
+    padding: 20px 5px
+    font-size: 1rem
+    background-color: rgba(0, 0, 0, 0.3)
+    overflow: hidden
+
+    @media all and (min-width: 400px)
+        padding: 20px 20px
+
+    > span
+        text-align: center
+        font-size: 1.5rem
+
+    > hr
+        background-color: gray
+        width: 95%
+        margin: 5px auto
+
+    .technologiesList
+        display: flex
+        flex-wrap: wrap
+        align-content: flex-start
+        justify-content: space-between
+        padding: 0
+        list-style: none
+        margin: 0
+
+        .technology
+            display: flex
+            align-items: center
+            padding: 10px 5px
+            flex-basis: 50%
+
+            @for $i from 1 to 20
+                &:nth-child(#{$i})
+                    img
+                        animation: rotate3d 4s #{0.5 * $i + s} linear infinite
+
+            &--reverse
+                flex-direction: row-reverse
+
+            > *
+                margin: 0 5px
+
+            img
+                width: 1.2rem
+                height: 1.2rem
+
+            span
+                text-align: center
+
+
+@keyframes rotate3d
+    from
+        transform: rotate3d(0, 1, 0, 0)
+    to
+        transform: rotate3d(0, 1, 0, 360deg)
