@@ -1,7 +1,7 @@
 import styles from "./social.module.sass"
-import VK from "@public/assets/vk.svg"
-import Github from "@public/assets/github.svg"
-import Linkedin from "@public/assets/linkedin.svg"
+import VK from "@public/assets/social/vk.svg"
+import Github from "@public/assets/social/github.svg"
+import Linkedin from "@public/assets/social/linkedin.svg"
 
 const Social = () => {
     return (
