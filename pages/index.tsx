@@ -9,6 +9,7 @@ import { detectMobile } from "@utils"
 import { useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { setMobile } from "@redux/actions/main"
+import AboutBlock from "@components/AboutBlock/AboutBlock"
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const isMobile = detectMobile(context.req.headers["user-agent"])
@@ -38,7 +39,7 @@ const MainPage: React.FunctionComponent<MainPageProps> = ({ isMobile }) => {
             <HorizontalScroll>
                 <MainBlock id="main-block" />
                 <WorksBlock id="works-block" />
-                <WorksBlock id="about-block" />
+                <AboutBlock id="about-block" />
             </HorizontalScroll>
         </>
     )
