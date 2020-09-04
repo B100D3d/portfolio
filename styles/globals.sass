@@ -16,6 +16,9 @@ html, body
   font-size: 12px
   overflow-x: hidden
 
+body
+  will-change: scroll-position
+
 html
   --accent-color: #5F26FF
   --dark-color: #101010
@@ -49,11 +52,12 @@ html
   height: 100%
   display: flex
 
-
-// TEST! REMOVE
-#about-block
-  background: #4A00E0
-
 a
   color: inherit
   text-decoration: none
+
+.block
+  width: 100vw
+  height: 100%
+  padding-top: 60px
+  overflow: hidden
