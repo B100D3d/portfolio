@@ -9,6 +9,8 @@ const forms = ["circle", "superellipse"] as const
 type GlowForm = typeof forms[number] | "random"
 
 interface GlowingPieceProps {
+    animate?: boolean
+    willChange?: boolean
     style?: React.CSSProperties
     form: GlowForm
 }
@@ -16,6 +18,8 @@ interface GlowingPieceProps {
 const GlowingPiece: React.FunctionComponent<GlowingPieceProps> = ({
     style,
     form,
+    animate,
+    willChange,
 }) => {
     const formClass = useMemo(
         () =>
@@ -26,7 +30,7 @@ const GlowingPiece: React.FunctionComponent<GlowingPieceProps> = ({
     )
     const animationClass = useMemo(
         () => styles[`glow--animation-${random(1, 4)}`],
-        []
+        [animate]
     )
     const color = useMemo(() => colors[random(colors.length)], [style])
 
@@ -36,7 +40,10 @@ const GlowingPiece: React.FunctionComponent<GlowingPieceProps> = ({
                 ...style,
                 "--glow-color": color,
             }}
-            className={classNames(styles.glow, formClass, animationClass)}
+            className={classNames(styles.glow, formClass, animationClass, {
+                [styles.animate]: animate,
+                [styles.willChange]: willChange,
+            })}
         />
     )
 }

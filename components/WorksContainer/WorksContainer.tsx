@@ -9,10 +9,12 @@ import { CSSTransition, SwitchTransition } from "react-transition-group"
 
 interface WorksContainerProps {
     animate?: boolean
+    willChange?: boolean
 }
 
 const WorksContainer: React.FunctionComponent<WorksContainerProps> = ({
     animate,
+    willChange,
 }) => {
     const [work, nextWork, prevWork] = useSliderItem(works)
 
@@ -48,6 +50,7 @@ const WorksContainer: React.FunctionComponent<WorksContainerProps> = ({
                         <div
                             className={classNames(styles.worksContainer, {
                                 [styles.animate]: animate,
+                                [styles.willChange]: willChange,
                             })}
                         >
                             <div className={styles.worksContainer__title}>

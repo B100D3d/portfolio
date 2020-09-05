@@ -37,6 +37,7 @@ const HorizontalScroll: React.FunctionComponent<HorizontalScrollProps> = ({
                 if (React.isValidElement(child)) {
                     return React.cloneElement(child, {
                         animate: i === currentBlockIndex && scrollDone,
+                        willChange: i === currentBlockIndex,
                     })
                 }
             }),

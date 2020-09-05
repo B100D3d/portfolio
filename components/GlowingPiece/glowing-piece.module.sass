@@ -9,16 +9,16 @@
     background: var(--glow-color)
     box-shadow: 0 0 40px 10px var(--glow-color)
     pointer-events: none
-    backface-visibility: hidden
-    perspective: 1000px
-    transform: translate3d(0, 0, 0)
-    will-change: transform, left, top
+    will-change: auto
     filter: blur(2px)
 
+    &.willChange
+        will-change: transform, left, top
 
-    @for $i from 1 through 4
-        &--animation-#{$i}
-            animation: move-#{$i} 7s linear infinite alternate
+    &.animate
+        @for $i from 1 through 4
+            &.glow--animation-#{$i}
+                animation: move-#{$i} 7s linear infinite alternate
 
     &--circle
         border-radius: 50%
@@ -30,19 +30,19 @@
 
 @keyframes move-1
     from
-        transform: translate3d(0, 0, 0)
+        transform: translateY(0)
     to
-        transform: translate3d(0, 200%, 0) rotate(90deg)
+        transform: translateY(200%) rotate(90deg)
 
 @keyframes move-2
     from
-        transform: translate3d(0, 100%, 0)
+        transform: translateY(100%)
     to
-        transform: translate3d(0, -100%, 0) rotate(120deg)
+        transform: translateY(-100%) rotate(120deg)
 
 @keyframes move-3
     from
-        transform: translate3d(0, 0, 0)
+        transform: translateY(0)
     to
-        transform: translate3d(0, 150%, 0) rotate(60deg)
+        transform: translateY(150%) rotate(60deg)
 

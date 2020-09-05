@@ -5,10 +5,12 @@ import { random } from "@utils"
 
 interface GlowingBackgroundProps {
     animate?: boolean
+    willChange?: boolean
 }
 
 const GlowingBackground: React.FunctionComponent<GlowingBackgroundProps> = ({
     animate,
+    willChange,
 }) => {
     const [glowingStyles, setGlowingStyles] = useState<
         Array<React.CSSProperties>
@@ -23,7 +25,13 @@ const GlowingBackground: React.FunctionComponent<GlowingBackgroundProps> = ({
     return (
         <div className={styles.glowingContainer}>
             {glowingStyles.map((style, i) => (
-                <GlowingPiece key={i} form="random" style={style} />
+                <GlowingPiece
+                    key={i}
+                    form="random"
+                    style={style}
+                    animate={animate}
+                    willChange={willChange}
+                />
             ))}
         </div>
     )

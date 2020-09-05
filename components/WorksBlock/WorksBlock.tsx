@@ -14,6 +14,7 @@ const WorksBlock: React.FunctionComponent<WorksBlockProps> = ({
     id,
     className,
     animate,
+    willChange,
 }) => {
     const isMobile = useSelector(isMobileSelector)
 
@@ -26,12 +27,18 @@ const WorksBlock: React.FunctionComponent<WorksBlockProps> = ({
                 "block",
                 {
                     [styles.animate]: animate,
+                    [styles.willChange]: willChange,
                 }
             )}
         >
             <div className={styles.contentContainer}>
-                {!isMobile && <GlowingBackground animate={animate} />}
-                <WorksContainer animate={animate} />
+                {!isMobile && (
+                    <GlowingBackground
+                        willChange={willChange}
+                        animate={animate}
+                    />
+                )}
+                <WorksContainer willChange={willChange} animate={animate} />
             </div>
         </section>
     )
