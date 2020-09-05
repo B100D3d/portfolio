@@ -28,8 +28,8 @@ const useScrollByBlock: useScrollByBlockHook = () => {
         currentBlockIndex,
     ])
 
-    const next = useCallback(() => dispatch(nextBlock), [])
-    const prev = useCallback(() => dispatch(prevBlock), [])
+    const next = useCallback(() => dispatch(nextBlock()), [])
+    const prev = useCallback(() => dispatch(prevBlock()), [])
     const toBlock = useCallback(
         (blockId: string) => {
             const block = document.querySelector<HTMLElement>(`#${blockId}`)

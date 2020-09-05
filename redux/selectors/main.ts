@@ -7,3 +7,8 @@ export const isMobileSelector = createSelector(
     [mainStore],
     (main) => main.isMobile
 )
+
+export const pageLoadedSelector = createSelector(
+    [mainStore],
+    (main) => main.pageLoad
+)

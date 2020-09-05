@@ -17,61 +17,52 @@
         color: #99999d
         font-size: 3rem
         font-weight: bold
-        animation: title-appearance 5.2s ease
-        will-change: transform, opacity
+        transform: translateX(-100%)
+        opacity: 0
+        transition: all 1.8s 2.7s ease
+        //will-change: transform, opacity
 
         &:first-child
-            animation: title-appearance 4.9s ease
+            transition: all 1.8s 2.5s ease
 
     &__about
         margin-top: 10px
         font-size: 1.2rem
         width: 100%
         white-space: nowrap
-        animation: about-appearance 5.6s ease
-        will-change: transform, opacity
+        transform: translateY(80px)
+        opacity: 0
+        transition: all 600ms 3.8s ease
+        //will-change: transform, opacity
 
     .aboutBtnContainer
         margin-top: 50px
-        animation: btn-appearance ease 5.6s
-        will-change: transform, opacity
+        opacity: 0
+        transform: translateY(50px)
+        transition: all 600ms 3.8s ease
+        //will-change: transform, opacity
         .aboutBtn
             font-size: 1rem
             &::after
                 content: "→"
                 display: inline-flex
-                will-change: transform
                 animation: arrowTranslate 1s ease infinite alternate
+
+    &.animate
+        .aboutContainer__title
+            transform: translateY(0)
+            opacity: 1
+
+        .aboutContainer__about
+            transform: translateY(0px)
+            opacity: 1
+
+        .aboutBtnContainer
+            opacity: 1
+            transform: translateY(0)
 
     @media all and (min-width: $screen-md)
         height: 40%
-
-
-
-@keyframes title-appearance
-    0%, 70%
-        transform: translateX(-100%)
-        opacity: 0
-    100%
-        transform: translateY(0)
-        opacity: 1
-
-@keyframes about-appearance
-    0%, 90%
-        transform: translateY(80px)
-        opacity: 0
-    100%
-        transform: translateY(0px)
-        opacity: 1
-
-@keyframes btn-appearance
-    0%, 90%
-        opacity: 0
-        transform: translateY(50px)
-    100%
-        opacity: 1
-        transform: translateY(0)
-
 
 @keyframes arrowTranslate
     from

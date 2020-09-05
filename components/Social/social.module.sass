@@ -20,11 +20,15 @@ $linkedin-color: #0097bd
     li
         margin: 5px 0
         cursor: pointer
-        transition: transform 0.25s ease
+        opacity: 0
+        transform: translateX(100%)
+
 
         &:hover
-            transform: scale(1.05)
-            filter: drop-shadow(4px 4px 1px rgba(0, 0, 0, 0.5))
+            a
+                transition: transform 0.25s ease
+                transform: scale(1.05)
+                filter: drop-shadow(4px 4px 1px rgba(0, 0, 0, 0.5))
 
         a
             display: block
@@ -48,27 +52,24 @@ $linkedin-color: #0097bd
                     fill: white
 
     .vk
-        animation: social-appearance 5.8s ease
+        transition: all 0.5s 4s ease
         &:hover
             svg path
                 fill: $vk-color
 
     .github
-        animation: social-appearance 6s ease
+        transition: all 0.5s 4.2s ease
         &:hover
             svg path
                 fill: $github-color
 
     .linkedin
-        animation: social-appearance 6.2s ease
+        transition: all 0.5s 4.4s ease
         &:hover
             svg path
                 fill: $linkedin-color
 
-@keyframes social-appearance
-    0%, 90%
-        opacity: 0
-        transform: translateX(100%)
-    100%
-        opacity: 1
-        transform: translateX(0)
+    &.animate
+        li
+            opacity: 1
+            transform: translateX(0)

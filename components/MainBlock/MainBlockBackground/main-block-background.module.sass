@@ -6,12 +6,17 @@
         position: absolute
         top: calc((#{$sideLength} - 100%) / -2)
         left: calc((#{$sideLength} - 100%) / -2)
-        transform: rotate(-45deg) translate(0, -50%)
+        transform: rotate(-45deg)
         width: $sideLength
         height: $sideLength
         background-color: var(--accent-color)
-        animation: translate 4s ease-in-out
-        will-change: transform, top, left
+        transition: transform 1.2s 1.25s ease-in-out
+
+        &.animate
+            transform: rotate(-45deg) translate(0, -50%)
+
+            .mainBlockContainer__backgroundClip
+                animation: clip 0.7s ease 2s 2 alternate
 
 
     &__backgroundClip
@@ -22,15 +27,6 @@
         height: 100%
         background-color: var(--dark-color)
         clip-path: ellipse(50% 0 at 50% 100%)
-        animation: clip 0.7s ease 3.65s 2 alternate
-        will-change: clip-path
-
-
-@keyframes translate
-    0%, 70%
-        transform: rotate(-45deg)
-    100%
-        transform: rotate(-45deg) translate(0, -50%)
 
 
 @keyframes clip

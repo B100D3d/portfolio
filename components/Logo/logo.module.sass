@@ -7,18 +7,31 @@
 
 .logo
     color: white
-    font-size: 1.5rem
     position: fixed
     display: flex
     justify-content: space-between
     align-items: flex-end
-    top: 3%
-    left: 5%
     font-weight: bold
     pointer-events: none
-    animation: logo-translate 4s ease-in-out
-    will-change: transform, top, left
+    font-size: 3rem
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    transition: all 1.2s 1.25s ease-in-out
+    will-change: transform, left, top
     z-index: 1
+
+    &.animate
+        left: 5%
+        top: 3%
+        transform: translate(-25%, -25%) scale(0.5)
+
+        .logo__glitch
+            &::before
+                animation: glitch-b 40s 2.4s steps(1, end) infinite alternate-reverse
+
+            &::after
+                animation: glitch-a 30s 2.4s steps(1, end) infinite alternate
 
     &--small
         font-size: 0.8em
@@ -38,10 +51,8 @@
 
         &::before
             text-shadow: -3px -3px #00fff9
-            animation:  glitch-b 40s 4s steps(1, end) infinite alternate-reverse
         &::after
             text-shadow: 3px 3px  #ff00c1
-            animation: glitch-a 30s 4s steps(1, end) infinite alternate
 
 @keyframes glitch-a
 
@@ -69,14 +80,3 @@
                 $left: #{random(30) / 100 - random(30) / 100 - 0.02}
                 $v-height: #{percentage((random(3) + 2) * (1/20))}
                 @include glitch-transformation($top, $left, $v-height)
-
-@keyframes logo-translate
-    0%, 70%
-        font-size: 3rem
-        left: 50%
-        top: 50%
-        transform: translate(-50%, -50%)
-    100%
-        font-size: 1.5rem
-        left: 5%
-        top: 3%

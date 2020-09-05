@@ -8,7 +8,7 @@ import HorizontalScroll from "@components/HorizontalScroll/HorizontalScroll"
 import { detectMobile } from "@utils"
 import { useDispatch } from "react-redux"
 import { useEffect } from "react"
-import { setMobile } from "@redux/actions/main"
+import { pageLoaded, setMobile } from "@redux/actions/main"
 import AboutBlock from "@components/AboutBlock/AboutBlock"
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -27,6 +27,7 @@ const MainPage: React.FunctionComponent<MainPageProps> = ({ isMobile }) => {
 
     useEffect(() => {
         dispatch(setMobile(isMobile))
+        dispatch(pageLoaded())
     }, [])
 
     return (

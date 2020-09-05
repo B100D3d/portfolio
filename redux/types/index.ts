@@ -1,6 +1,7 @@
 import {
     MAX_INDEX,
     NEXT_BLOCK,
+    PAGE_LOADED,
     PREV_BLOCK,
     SET_MOBILE,
     TO_BLOCK,
@@ -8,6 +9,7 @@ import {
 
 export interface MainState {
     isMobile: boolean
+    pageLoad: boolean
 }
 
 export interface ScrollState {
@@ -40,4 +42,8 @@ export interface Mobile {
     isMobile: boolean
 }
 
-export type MainActionTypes = Mobile
+export interface PageLoaded {
+    type: typeof PAGE_LOADED
+}
+
+export type MainActionTypes = Mobile | PageLoaded

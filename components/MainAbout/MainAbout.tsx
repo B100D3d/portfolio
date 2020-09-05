@@ -6,9 +6,13 @@ import { revealText } from "@utils/animation"
 import RainbowButton from "@components/RainbowButton/RainbowButton"
 import Anchor from "@components/Anchor/Anchor"
 import Obfuscator from "@utils/obfuscator"
-const animationTimeout = 4900
+import { useSelector } from "react-redux"
+import { pageLoadedSelector } from "@redux/selectors/main"
+import classNames from "classnames"
+const animationTimeout = 3700
 
 const MainAbout = () => {
+    const pageLoaded = useSelector(pageLoadedSelector)
     const [aboutText, setAboutText] = useState("I'm junior frontend developer.")
     const [colorFill, setColorFill] = useState(false)
     const nameTitleRef = useRef() as React.RefObject<HTMLDivElement>
@@ -25,14 +29,20 @@ const MainAbout = () => {
     }, [])
 
     useEffect(() => {
-        timeout(animationTimeout).then(() => {
-            fillText()
-            revealAbout()
-        })
-    }, [])
+        if (pageLoaded) {
+            timeout(animationTimeout).then(() => {
+                fillText()
+                revealAbout()
+            })
+        }
+    }, [pageLoaded])
 
     return (
-        <div className={styles.aboutContainer}>
+        <div
+            className={classNames(styles.aboutContainer, {
+                [styles.animate]: pageLoaded,
+            })}
+        >
             <div ref={nameTitleRef} className={styles.aboutContainer__title}>
                 <ColorFilledText animate={colorFill}>Hello.</ColorFilledText>
             </div>

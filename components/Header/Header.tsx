@@ -2,11 +2,18 @@ import styles from "./header.module.sass"
 import Anchor from "@components/Anchor/Anchor"
 import { useSelector } from "react-redux"
 import { currentBlockIndexSelector } from "@redux/selectors/scroll"
+import { pageLoadedSelector } from "@redux/selectors/main"
+import classNames from "classnames"
 
 const Header = () => {
+    const pageLoaded = useSelector(pageLoadedSelector)
     const currentBlockIndex = useSelector(currentBlockIndexSelector)
     return (
-        <header className={styles.header}>
+        <header
+            className={classNames(styles.header, {
+                [styles.animate]: pageLoaded,
+            })}
+        >
             <div className={styles.sizer}>DEV</div>
             <ul>
                 <li>

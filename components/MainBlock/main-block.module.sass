@@ -19,7 +19,13 @@
             right: 50px
             color: white
             font-size: 0.8rem
-            animation: scroll-swipe-appearance 7s ease
+            opacity: 0
+            transform: translateX(-100%)
+            transition: all 1s 4s ease
+
+            &.animate
+                opacity: 1
+                transform: translateX(0)
 
             @media all and (min-width: $screen-smd)
                 right: 40%
@@ -41,14 +47,5 @@
         transform: translate(-70%, 50%)
     to
         transform: translate(0, 50%)
-
-
-@keyframes scroll-swipe-appearance
-    0%, 70%
-        opacity: 0
-        transform: translateX(-100%)
-    100%
-        opacity: 1
-        transform: translateX(0)
 
 
