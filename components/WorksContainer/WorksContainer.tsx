@@ -5,7 +5,7 @@ import { useCallback } from "react"
 import TechnologiesList from "@components/TechnologiesList/TechnologiesList"
 import useSliderItem from "@hooks/useSliderItem"
 import works from "@components/WorksContainer/Works"
-import { CSSTransition, SwitchTransition } from "react-transition-group"
+import { CSSTransition, TransitionGroup } from "react-transition-group"
 
 interface WorksContainerProps {
     animate?: boolean
@@ -36,7 +36,7 @@ const WorksContainer: React.FunctionComponent<WorksContainerProps> = ({
                 onClick={handleNextWork}
             />
             <div className={styles.overflowContainer}>
-                <SwitchTransition>
+                <TransitionGroup>
                     <CSSTransition
                         key={work.name}
                         classNames={{
@@ -45,7 +45,7 @@ const WorksContainer: React.FunctionComponent<WorksContainerProps> = ({
                             exit: styles.transitionExit,
                             exitActive: styles.transitionExitActive,
                         }}
-                        timeout={1000}
+                        timeout={2000}
                     >
                         <div
                             className={classNames(styles.worksContainer, {
@@ -90,7 +90,7 @@ const WorksContainer: React.FunctionComponent<WorksContainerProps> = ({
                             </span>
                         </div>
                     </CSSTransition>
-                </SwitchTransition>
+                </TransitionGroup>
             </div>
             <button
                 className={classNames(

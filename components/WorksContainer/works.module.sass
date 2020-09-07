@@ -205,23 +205,23 @@
             .worksContainer
                 &__title
                     transform: translate(10%, 30%)
-                    transition: transform 1s ease-in
+                    transition: transform 1s 1s ease-in
 
                 &__description
                     transform: translateY(0)
-                    transition: transform 0.8s ease-in 0.2s
+                    transition: transform 0.8s 1.2s ease-in
 
             .centerContainer
-                transition: transform 1s ease-in
+                transition: transform 1s 1s ease-in
                 transform: translate(-50%, calc(-50% + 50px))
                 &__avatar
-                    transition: top 1s ease-in, transform 1s ease-in, opacity 0.3s ease-in
+                    transition: top 1s 1s ease-in, transform 1s 1s ease-in, opacity 0.3s 1s ease-in
                     top: 0
                     transform: scale(0.5) translate(-100%, calc(-150% + 20px)) rotate3d(0, 1, 0, 360deg)
                     opacity: 1
 
                 &__technologiesList
-                    transition: opacity 1s ease-in
+                    transition: opacity 1s 1s ease-in
                     opacity: 1
     &Exit
         @include ExitTransition
