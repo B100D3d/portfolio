@@ -73,8 +73,8 @@
 
 
             &__contacts
-                opacity: 0
-                transition: opacity 0.5s linear
+                visibility: hidden
+                transition: visibility 0s 0.5s linear
                 li
                     margin: 0 10px
 
@@ -134,8 +134,8 @@
                     animation: contacts-back 0.7s 3s ease
 
                 &__contacts
-                    transition: opacity 0s 3.4s
-                    opacity: 1
+                    transition: visibility 0s 3.4s
+                    visibility: visible
 
             .aboutTextContainer
                 &__word
