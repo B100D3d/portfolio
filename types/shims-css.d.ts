@@ -6,6 +6,7 @@ declare global {
             "--sideLength"?: string
             "--glow-color"?: string
             "--delay"?: string
+            "--angle"?: string
         }
     }
 }
