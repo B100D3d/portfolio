@@ -1,0 +1,32 @@
+
+
+.spinningRings
+    position: relative
+    margin: 0
+    padding: 0
+    list-style: none
+    transform-style: preserve-3d
+    perspective: 1000px
+    animation: spin 30s linear infinite
+    animation-play-state: paused
+
+    &.animate
+        animation-play-state: running
+
+    li
+        position: absolute
+        top: 50%
+        left: 50%
+
+        @for $i from 1 through 30
+            &:nth-child(#{$i})
+                transform: translate(-50%, -50%) rotate(calc(#{$i} * var(--angle) - var(--angle))) translateY(-8rem) rotateX(90deg)
+
+
+@keyframes spin
+    0%
+        transform: rotateX(-100deg) rotateY(45deg) rotate(0) translate(-50%, -50%)
+
+    100%
+        transform: rotateX(-100deg) rotateY(45deg) rotate(360deg) translate(-50%, -50%)
+
