@@ -11,14 +11,19 @@
     pointer-events: none
     will-change: auto
     filter: blur(2px)
+    transition: transform 5s linear
+    animation-play-state: paused
+
+    @for $i from 1 through 4
+        &.glow--animation-#{$i}
+            animation: move-#{$i} 7s linear infinite alternate
 
     &.willChange
         will-change: transform, left, top
 
     &.animate
-        @for $i from 1 through 4
-            &.glow--animation-#{$i}
-                animation: move-#{$i} 7s linear infinite alternate
+        animation-play-state: running
+
 
     &--circle
         border-radius: 50%
