@@ -25,17 +25,16 @@ const MainBlock: React.FunctionComponent<MainBlockProps> = ({
             className={classNames(
                 styles.mainBlockContainer,
                 className,
-                "block"
+                "block",
+                { [styles.animate]: pageLoaded }
             )}
         >
             <MainBlockBackground />
             <div className={styles.contentContainer}>
                 <MainAbout />
                 <QuoteContainer />
-                <Social />
-                <i className={classNames({ [styles.animate]: pageLoaded })}>
-                    {isMobile ? "Swipe" : "Scroll"}
-                </i>
+                <Social className={styles.contacts} />
+                <i>{isMobile ? "Swipe" : "Scroll"}</i>
             </div>
         </section>
     )

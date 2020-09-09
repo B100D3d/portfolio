@@ -5,24 +5,13 @@ $github-color: gray
 $linkedin-color: #0097bd
 
 .social
-    position: absolute
-    top: 30%
-    right: 10px
     display: flex
-    flex-direction: column
     list-style: none
     padding: 0
-    margin: -5px 0
-
-    @media all and (min-width: $screen-smd)
-        top: 50px
+    margin: 0
 
     li
-        margin: 5px 0
         cursor: pointer
-        opacity: 0
-        transform: translateX(100%)
-
 
         &:hover
             a
@@ -52,24 +41,16 @@ $linkedin-color: #0097bd
                     fill: white
 
     .vk
-        transition: all 0.5s 4s ease
         &:hover
             svg path
                 fill: $vk-color
 
     .github
-        transition: all 0.5s 4.2s ease
         &:hover
             svg path
                 fill: $github-color
 
     .linkedin
-        transition: all 0.5s 4.4s ease
         &:hover
             svg path
                 fill: $linkedin-color
-
-    &.animate
-        li
-            opacity: 1
-            transform: translateX(0)
