@@ -15,7 +15,6 @@ $borderStyle: 5px solid var(--accent-color)
     transform: translateX(100%)
     opacity: 0
     transition: all 1.8s 2.5s ease
-    //will-change: transform, opacity
     animation: box-appearance 5s ease
 
     @media all and (min-width: $screen-md)
@@ -23,11 +22,6 @@ $borderStyle: 5px solid var(--accent-color)
         height: 50%
         margin-bottom: 20px
 
-        &:hover
-            transform: rotate3d(0, 1, 0, -15deg)
-
-            .quoteBox
-                transform: rotate3d(0, 1, 0, 15deg)
 
     &.animate
         transform: translateY(0)
@@ -44,18 +38,18 @@ $borderStyle: 5px solid var(--accent-color)
         perspective: 1000px
         transition: all 0.4s linear
 
+        &:hover
+            transform: rotate3d(0, 1, 0, -20deg)
+
+            .quoteBox
+                transform: rotate3d(0, 1, 0, 20deg)
+
         @media all and (min-width: $screen-md)
             &:hover
                 transform: rotate3d(0, 1, 0, -15deg)
 
                 .quoteBox
                     transform: rotate3d(0, 1, 0, 15deg)
-
-        &:hover
-            transform: rotate3d(0, 1, 0, -20deg)
-
-            .quoteBox
-                transform: rotate3d(0, 1, 0, 20deg)
 
 
         i
@@ -94,7 +88,7 @@ $borderStyle: 5px solid var(--accent-color)
             width: calc(100% + #{$top * 2})
             height: calc(100% + #{$left * 2})
             color: white
-            background-color: #1A2026 //#01142F
+            background-color: #1A2026
             transition: all 0.4s linear
             transform-style: preserve-3d
             backface-visibility: hidden
