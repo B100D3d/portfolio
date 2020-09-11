@@ -33,7 +33,10 @@ const MainBlock: React.FunctionComponent<MainBlockProps> = ({
             <div className={styles.contentContainer}>
                 <MainAbout />
                 <QuoteContainer />
-                <Social className={styles.contacts} />
+                <Social
+                    className={styles.contacts}
+                    shownNetworks={["vk", "github", "linkedin"]}
+                />
                 <i>{isMobile ? "Swipe" : "Scroll"}</i>
             </div>
         </section>
