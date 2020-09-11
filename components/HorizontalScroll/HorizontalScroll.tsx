@@ -22,7 +22,7 @@ export const scrollSmooth = async (to: number): Promise<boolean> => {
     })
 }
 
-const FIRST_ANIMATION_TIME = 6000
+const FIRST_ANIMATION_TIME = 4000
 
 const HorizontalScroll: React.FunctionComponent<HorizontalScrollProps> = ({
     children,
