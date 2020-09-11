@@ -30,7 +30,7 @@ const GlowingPiece: React.FunctionComponent<GlowingPieceProps> = ({
     )
     const animationClass = useMemo(
         () => styles[`glow--animation-${random(1, 4)}`],
-        [animate]
+        [style]
     )
     const color = useMemo(() => colors[random(colors.length)], [style])
 
