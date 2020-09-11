@@ -30,7 +30,7 @@ const networks: Record<Network, NetworkData> = {
         SVG: Telegram,
     },
     gmail: {
-        link: "mailto:alexblooded@gmail.com",
+        link: "mailto:admin@devourer.ru",
         SVG: Gmail,
     },
 }
