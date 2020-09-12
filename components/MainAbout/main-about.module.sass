@@ -19,10 +19,10 @@
         font-weight: bold
         transform: translateX(-100%)
         opacity: 0
-        transition: all 1.8s 2.7s ease, font-size 0s
+        transition: transform 1.8s 2.7s ease, opacity 1.8s 2.7s ease
 
         &:first-child
-            transition: all 1.8s 2.5s ease, font-size 0s
+            transition: transform 1.8s 2.5s ease, opacity 1.8s 2.5s ease
 
     &__about
         margin-top: 10px
@@ -31,13 +31,13 @@
         white-space: nowrap
         transform: translateY(80px)
         opacity: 0
-        transition: all 600ms 3.8s ease, font-size 0s
+        transition: transform 0.6s 3.8s ease, opacity 0.6s 3.8s ease
 
     .aboutBtnContainer
         margin-top: 50px
         opacity: 0
         transform: translateY(50px)
-        transition: all 600ms 3.8s ease, font-size 0s
+        transition: transform 0.6s 3.8s ease, opacity 0.6s 3.8s ease
         .aboutBtn
             font-size: 1rem
             &::after

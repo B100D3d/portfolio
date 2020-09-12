@@ -34,10 +34,12 @@ const MainBlock: React.FunctionComponent<MainBlockProps> = ({
                 <MainAbout />
                 <QuoteContainer />
                 <Social
-                    className={styles.contacts}
+                    className={styles.contentContainer__contacts}
                     shownNetworks={["vk", "github", "linkedin"]}
                 />
-                <i>{isMobile ? "Swipe" : "Scroll"}</i>
+                <i className={styles.contentContainer__scrollNSwipe}>
+                    {isMobile ? "Swipe" : "Scroll"}
+                </i>
             </div>
         </section>
     )

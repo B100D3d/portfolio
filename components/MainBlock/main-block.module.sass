@@ -13,7 +13,7 @@
         justify-content: space-between
         align-items: center
 
-        > i
+        &__scrollNSwipe
             position: absolute
             top: 30px
             right: 50px
@@ -21,7 +21,7 @@
             font-size: 0.8rem
             opacity: 0
             transform: translateX(-100%)
-            transition: all 1s 4s ease
+            transition: transform 1s 4s ease, opacity 1s 4s ease
 
             @media all and (min-width: $screen-smd)
                 right: 40%
@@ -38,7 +38,7 @@
                 animation: arrow-translate 1s ease infinite alternate
 
 
-        .contacts
+        &__contacts
             position: absolute
             top: 30%
             right: 10px
@@ -58,11 +58,11 @@
                         transition: all 0.5s #{3.8 + $i * 0.2 + s} ease
 
     &.animate
-        .contentContainer > i
+        .contentContainer__scrollNSwipe
             opacity: 1
             transform: translateX(0)
 
-        .contentContainer .contacts
+        .contentContainer__contacts
             li
                 opacity: 1
                 transform: translateX(0)
