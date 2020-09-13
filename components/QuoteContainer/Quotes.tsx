@@ -46,6 +46,43 @@ const QUOTES: Array<Quote> = [
             </span>
         ),
     },
+    {
+        key: "7nKJndKJSN",
+        title: <span style={{ color: "#ccd8d8" }}>Geralt of Rivia</span>,
+        text: (
+            <span>
+                <span style={{ color: "#e62430" }}>Evil</span> is{" "}
+                <span style={{ color: "#e62430" }}>Evil</span>. Lesser, greater,
+                middling, makes no difference. The degree is arbitrary, the
+                definitions blurred. If I'm to choose between one{" "}
+                <span style={{ color: "#e62430" }}>Evil</span> and another, I'd
+                rather{" "}
+                <span style={{ color: "#5689a0", textTransform: "uppercase" }}>
+                    not choose at all
+                </span>
+            </span>
+        ),
+    },
+    {
+        key: "Kiu2enf92ue",
+        title: (
+            <span>
+                <span style={{ color: "#b47633" }}>
+                    The Fellowship of the Ring
+                </span>
+                , J.R.R. Tolkein
+            </span>
+        ),
+        text: (
+            <span>
+                All we have to decide is what to do with the{" "}
+                <span style={{ color: "#4A69FF", textTransform: "uppercase" }}>
+                    time
+                </span>{" "}
+                that is given us.
+            </span>
+        ),
+    },
 ]
 
 export default QUOTES
