@@ -4,15 +4,9 @@ import classNames from "classnames"
 import SpinningRing from "@components/SpinningRing/SpinningRing"
 import { useMemo } from "react"
 import Social from "@components/Social/Social"
+import { age } from "@utils"
 
 type AboutBlockProps = BlockProps
-
-const age = () => {
-    const MILLISECONDS_IN_YEAR = 1000 * 60 * 60 * 24 * 365
-    const currentDate = new Date().getTime()
-    const birthday = new Date(2000, 4, 1).getTime()
-    return Math.floor((currentDate - birthday) / MILLISECONDS_IN_YEAR)
-}
 
 const ABOUT_TEXT = `
 I'm a ${age()}-year-old developer from Russia. 

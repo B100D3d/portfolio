@@ -16,6 +16,13 @@ export const random = (from: number, to?: number): number => {
 
 export const timeout = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
+export const age = () => {
+    const MILLISECONDS_IN_YEAR = 1000 * 60 * 60 * 24 * 365
+    const currentDate = new Date().getTime()
+    const birthday = new Date(2000, 4, 1).getTime()
+    return Math.floor((currentDate - birthday) / MILLISECONDS_IN_YEAR)
+}
+
 export const detectMobile = (userAgent?: string) => {
     const toMatch = [
         /Android/i,
