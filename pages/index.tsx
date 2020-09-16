@@ -5,7 +5,7 @@ import Logo from "@components/Logo/Logo"
 import Head from "@components/Head/Head"
 import WorksBlock from "@components/WorksBlock/WorksBlock"
 import HorizontalScroll from "@components/HorizontalScroll/HorizontalScroll"
-import { detectMobile } from "@utils"
+import { age, detectMobile } from "@utils"
 import { useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { pageLoaded, setMobile } from "@redux/actions/main"
@@ -34,6 +34,17 @@ const MainPage: React.FunctionComponent<MainPageProps> = ({ isMobile }) => {
         <>
             <Head>
                 <title>devourer</title>
+                <meta
+                    name="description"
+                    content={`I'm a ${age()}-year-old developer from Russia. I really like to make cool things and learn how to do it. Looking for a good job ;)`}
+                />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://devourer.ru" />
+                <meta property="og:title" content="devourer" />
+                <meta
+                    property="og:description"
+                    content={`I'm a ${age()}-year-old developer from Russia. I really like to make cool things and learn how to do it. Looking for a good job ;)`}
+                />
             </Head>
             <Logo />
             <Header />
