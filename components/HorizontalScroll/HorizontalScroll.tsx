@@ -59,7 +59,7 @@ const HorizontalScroll: React.FunctionComponent<HorizontalScrollProps> = ({
     }, [currentBlockIndex])
 
     useEffect(() => {
-        document.body.scrollTo({ left: scrollValue })
+        document.body.scrollLeft = scrollValue
     }, [width])
 
     useEffect(() => {
