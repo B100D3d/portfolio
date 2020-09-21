@@ -17,15 +17,19 @@
     left: 50%
     top: 50%
     transform: translate(-50%, -50%)
-    transition: left 1.2s 1.25s ease-in-out, top 1.2s 1.25s ease-in-out, transform 1.2s 1.25s ease-in-out
-    will-change: transform, left, top
+    transform-origin: 0 0
+    transition: left 1.2s 1.25s ease-in-out, top 1.2s 1.25s ease-in-out, transform 1.2s 1.25s ease-in-out, font-size 1.2s 1.25s ease-in-out
+    will-change: auto
     z-index: 10
+
+    &.willChange
+        will-change: transform, left, top, font-size
 
     &.animate
         left: 5%
         top: 3%
-        transform: scale(0.5)
-        transform-origin: 0 0
+        font-size: 1.5rem
+        transform: none
 
         .logo__glitch
             &::before

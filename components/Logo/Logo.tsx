@@ -1,14 +1,23 @@
 import styles from "./logo.module.sass"
-import { useCallback, useEffect, useState } from "react"
+import {
+    MutableRefObject,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from "react"
 import { addChars, removeLastChars } from "@utils/animation"
 import { useSelector } from "react-redux"
 import { pageLoadedSelector } from "@redux/selectors/main"
 import classNames from "classnames"
+import useRemoveWillChange from "@hooks/useRemoveWillChange"
 
 const LOGO_TEXT = "DEV."
 const SUB_TEXT = "ourer"
 
 const Logo = () => {
+    const logo = useRef() as MutableRefObject<HTMLDivElement>
+    useRemoveWillChange(logo.current, styles.willChange)
     const pageLoaded = useSelector(pageLoadedSelector)
     const [logoText, setLogoText] = useState(LOGO_TEXT)
     const [subLogoText, setSubLogoText] = useState("")
@@ -26,7 +35,8 @@ const Logo = () => {
 
     return (
         <div
-            className={classNames(styles.logo, {
+            ref={logo}
+            className={classNames(styles.logo, styles.willChange, {
                 [styles.animate]: pageLoaded,
             })}
         >
