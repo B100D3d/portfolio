@@ -8,7 +8,7 @@
     align-items: center
     justify-content: space-between
     width: 100%
-    padding: 0 5px
+    padding: 0 5%
     z-index: 10
 
     &.animate
@@ -18,7 +18,7 @@
 
     ul
         display: flex
-        margin: 0
+        margin: 0 -10px
         padding: 0
         justify-content: space-between
         align-items: center
@@ -29,7 +29,8 @@
         transition: opacity 1s 4s ease, transform 1s 4s ease
 
         li
-            padding: 2px 10px
+            padding: 2px 0
+            margin: 0 10px
             position: relative
             cursor: pointer
 
@@ -38,7 +39,7 @@
                 position: absolute
                 bottom: 0
                 left: auto
-                right: 10%
+                right: 0
                 width: 0
                 height: 2px
 
@@ -52,9 +53,9 @@
 
             &:hover
                 &::before, &::after
-                    width: 80%
+                    width: 100%
                     right: auto
-                    left: 10%
+                    left: 0
                 a, a.active
                     transition: none
                     color: transparent
