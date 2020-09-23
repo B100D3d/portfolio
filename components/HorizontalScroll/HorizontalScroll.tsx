@@ -77,22 +77,16 @@ const HorizontalScroll: React.FunctionComponent<HorizontalScrollProps> = ({
             touch.y = e.touches[0].pageY
         }
         const handleTouchMove = (e: TouchEvent) => {
-            if (
-                e.touches[0].pageX < touch.x &&
-                touch.x - e.touches[0].pageX > 50
-            ) {
+            if (touch.x - e.touches[0].pageX > 50) {
                 delta = 1
             }
-            if (
-                e.touches[0].pageX > touch.x &&
-                e.touches[0].pageX - touch.x > 50
-            ) {
+            if (e.touches[0].pageX - touch.x > 50) {
                 delta = -1
             }
         }
         const handleTouchEnd = () => {
             if (delta === 1) next()
-            if (delta === -1) prev()
+            else if (delta === -1) prev()
             delta = 0
         }
         timeout(FIRST_ANIMATION_TIME).then(() => {
