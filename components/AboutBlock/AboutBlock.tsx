@@ -28,12 +28,6 @@ const AboutBlock: React.FunctionComponent<AboutBlockProps> = ({
             })}
         >
             <div className={styles.noiseBackground} />
-            <img className={styles.tree} src="assets/tree.webp" alt="" />
-            <SpinningRing
-                text="人の淡い夢と夢絡まり燃える炎"
-                className={styles.spinner}
-                animate={animate}
-            />
             <div className={styles.aboutContainer}>
                 <div className={styles.aboutTextContainer}>
                     {aboutText.map((word, i) => {
@@ -53,6 +47,14 @@ const AboutBlock: React.FunctionComponent<AboutBlockProps> = ({
                 <div className={styles.contactsContainer}>
                     <Social className={styles.contactsContainer__contacts} />
                 </div>
+            </div>
+            <div className={styles.decorationContainer}>
+                <img className={styles.tree} src="assets/tree.webp" alt="" />
+                <SpinningRing
+                    text="人の淡い夢と夢絡まり燃える炎"
+                    className={styles.spinner}
+                    animate={animate}
+                />
             </div>
         </section>
     )

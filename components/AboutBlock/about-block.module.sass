@@ -8,7 +8,7 @@
     justify-content: center
 
     .aboutContainer
-        padding: 30px 10px
+        padding: 30px 10px 0
         color: white
         font-size: 1.5rem
         width: 90%
@@ -16,6 +16,7 @@
         flex-direction: column
         justify-content: flex-start
         align-items: center
+        z-index: 1
 
         .aboutTextContainer
             display: flex
@@ -79,7 +80,6 @@
                     margin: 0 10px
 
 
-
     .noiseBackground
         position: absolute
         left: -50%
@@ -92,31 +92,35 @@
         z-index: 2
         animation: noise 2s steps(4) infinite alternate
 
-    .tree
+    .decorationContainer
         position: absolute
-        right: 0
         bottom: 0
+        right: 0
         height: 40%
-        opacity: 0
-        transition: opacity 0.5s linear
-        transform: translate(18%, 15%) rotate(-45deg)
 
         @media all and (min-width: $screen-md)
             height: 60%
 
-    .spinner
-        font-size: 1rem
-        color: pink
-        position: absolute
-        transition: top 0s 0.5s ease
-        top: 50%
-        left: 50%
-
-        li
+        .tree
+            height: 100%
             opacity: 0
-            @for $i from 1 through 30
-                &:nth-child(#{$i})
-                    transition: opacity 0.8s #{$i * 0.05 + s} linear
+            transition: opacity 0.5s linear
+            transform: translate(50%, 0) rotate(-45deg)
+            transform-origin: 50% 100%
+
+        .spinner
+            font-size: 1rem
+            color: pink
+            position: absolute
+            transition: top 0s 0.5s ease
+            top: 0
+            left: 40%
+
+            li
+                opacity: 0
+                @for $i from 1 through 30
+                    &:nth-child(#{$i})
+                        transition: opacity 0.8s #{$i * 0.05 + s} linear
 
     &.animate
         .aboutContainer
@@ -145,18 +149,18 @@
                         &:nth-child(#{$i})
                             transition: opacity 1.5s #{$i * 0.1 + s} ease
 
+        .decorationContainer
+            .tree
+                transition: opacity 3s linear
+                opacity: 1
 
-        .tree
-            transition: opacity 3s linear
-            opacity: 1
-
-        .spinner
-            transition: top 4s ease
-            top: 75%
-            li
-                @for $i from 1 through 30
-                    &:nth-child(#{$i})
-                        opacity: 1
+            .spinner
+                transition: top 4s ease
+                top: 40%
+                li
+                    @for $i from 1 through 30
+                        &:nth-child(#{$i})
+                            opacity: 1
 
 
 @keyframes contacts-back
