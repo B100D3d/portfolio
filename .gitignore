@@ -19,6 +19,8 @@
 .vscode
 .next
 
+firestore-key.json
+
 # misc
 .DS_Store
 *.pem
