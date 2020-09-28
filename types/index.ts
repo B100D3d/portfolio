@@ -14,6 +14,14 @@ export interface CommentQuery {
     text: string
 }
 
+export interface LikeQuery {
+    nickname: string
+}
+
+export interface DislikeQuery {
+    id: string
+}
+
 export interface ApolloContext {
     userAgent: string
     ip: string
