@@ -12,8 +12,11 @@ export default class Database {
     private static instance: Database
     private db = admin.firestore()
 
-    CommentsCollection = this.db.collection("comments")
-    LikesCollection = this.db.collection("likes")
+    getCollection(
+        collectionName: string
+    ): FirebaseFirestore.CollectionReference {
+        return this.db.collection(collectionName)
+    }
 
     static getInstance(): Database {
         if (!Database.instance) {
