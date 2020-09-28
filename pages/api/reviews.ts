@@ -63,7 +63,7 @@ const apolloServer = new ApolloServer({
         }
     },
 })
-export default apolloServer.createHandler({ path: "/api/comments" })
+export default apolloServer.createHandler({ path: "/api/reviews" })
 
 export const config = {
     api: {
