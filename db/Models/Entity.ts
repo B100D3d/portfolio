@@ -35,4 +35,11 @@ export default class Entity<T extends EntityState> {
             .set(this.state)
         return this
     }
+
+    async remove(): Promise<FirebaseFirestore.WriteResult> {
+        return Database.getInstance()
+            .getCollection(this.collectionName)
+            .doc(this.id)
+            .delete()
+    }
 }
