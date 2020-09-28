@@ -1,20 +1,14 @@
 import { CommentQuery } from "@types"
-import { Timestamp } from "@google-cloud/firestore"
-import Entity from "@db/Models/Entity"
+import Entity, { EntityState } from "@db/Models/Entity"
+import CommentService from "@db/Models/CommentService"
 
-export interface CommentState extends CommentQuery {
+export interface CommentState extends CommentQuery, EntityState {
     ip: string
     userAgent: string
-    id?: string
-    timestamp?: Timestamp
 }
 
 export default class Comment extends Entity<CommentState> {
-    protected readonly collectionName = "comments"
-
-    constructor(state: CommentState) {
-        super(state)
-        this.state.id = state.id || Date.now().toString()
-        this.state.timestamp = state.timestamp || Timestamp.now()
+    constructor(state: CommentState, id?: string) {
+        super({ state, id, collectionName: CommentService.collectionName })
     }
 }
