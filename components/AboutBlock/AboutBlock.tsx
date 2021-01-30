@@ -11,7 +11,7 @@ type AboutBlockProps = BlockProps
 const ABOUT_TEXT = `
 I'm a ${age()}-year-old developer from Russia. 
 I really like to make cool things and learn how to do it. 
-Looking for a good job ;)
+Contact me ;)
 `
 
 const AboutBlock: React.FunctionComponent<AboutBlockProps> = ({

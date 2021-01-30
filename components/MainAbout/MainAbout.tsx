@@ -13,7 +13,7 @@ const animationTimeout = 3700
 
 const MainAbout = () => {
     const pageLoaded = useSelector(pageLoadedSelector)
-    const [aboutText, setAboutText] = useState("I'm junior frontend developer.")
+    const [aboutText, setAboutText] = useState("I'm frontend developer.")
     const [colorFill, setColorFill] = useState(false)
     const nameTitleRef = useRef() as React.RefObject<HTMLDivElement>
 
