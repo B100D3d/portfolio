@@ -101,12 +101,13 @@
                 will-change: auto
 
                 &__avatar
-                    --size: 220px
+                    --height: 180px
+                    --width: 260px
                     position: absolute
                     top: 50%
                     left: 50%
-                    width: var(--size)
-                    height: var(--size)
+                    width: var(--width)
+                    height: var(--height)
                     transform: translate(-50%, -50%) rotate3d(0, 1, 0, 360deg)
                     border-radius: 20px
                     transition: all 1s ease-in-out
@@ -114,19 +115,19 @@
                     box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.5)
                     background-repeat: no-repeat
                     background-position: 50% 50%
-                    background-size: 200%
+                    background-size: cover
 
                     @media all and (min-width: 360px)
-                        --size: 280px
-
-                        @media all and (max-height: 580px)
-                            --size: 220px
+                        --height: 220px
+                        --width: 300px
 
                     @media all and (min-width: $screen-md)
-                        --size: 300px
+                        --height: 220px
+                        --width: 300px
 
                     @media all and (min-width: $screen-ddc)
-                        --size: 380px
+                        --height: 380px
+                        --width: 500px
 
                 &__technologiesList
                     opacity: 0
